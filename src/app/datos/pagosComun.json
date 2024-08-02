@@ -1,0 +1,70 @@
+{
+    "pagosComún": [
+      {
+        "item": "1 Galpones y tinglados abiertos",
+        "unidad": "M2",
+        "costo": 693700
+      },
+      {
+        "item": "1 Nivel con techo de fibrocemento",
+        "unidad": "M2",
+        "costo": 1179000
+      },
+      {
+        "item": "1 Nivel con techo chapa trapezoidal",
+        "unidad": "M2",
+        "costo": 1333000
+      },
+      {
+        "item": "2 Niveles con techo chapa trapezoidal",
+        "unidad": "M2",
+        "costo": 1491000
+      },
+      {
+        "item": "2 Niveles con techo liviano",
+        "unidad": "M2",
+        "costo": 1870000
+      },
+      {
+        "item": "2 Niveles con techo pesado",
+        "unidad": "M2",
+        "costo": 2257000
+      },
+      {
+        "item": "Hasta 4 niveles",
+        "unidad": "M2",
+        "costo": 2676000
+      },
+      {
+        "item": "Hasta 5 niveles",
+        "unidad": "M2",
+        "costo": 3084000
+      },
+      {
+        "item": "Hasta 5 niveles con ascensor",
+        "unidad": "M2",
+        "costo": 3102000
+      },
+      {
+        "item": "Hasta 5 niveles con escalera",
+        "unidad": "M2",
+        "costo": 2676000
+      },
+      {
+        "item": "Hasta 5 niveles con ascensor y escalera",
+        "unidad": "M2",
+        "costo": 3725000
+      },
+      {
+        "item": "Hasta 5 niveles con sótano",
+        "unidad": "M2",
+        "costo": 3725000
+      },
+      {
+        "item": "Más de 5 niveles",
+        "unidad": "M2",
+        "costo": 5203000
+      }
+    ]
+  }
+  

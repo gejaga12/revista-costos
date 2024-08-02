@@ -1,0 +1,35 @@
+{
+    "essapDerechos": [
+      {
+        "item": "Essap, agua, derech. conex. medidor 3/4''",
+        "unidad": "GL",
+        "costo": 907650
+      },
+      {
+        "item": "Essap, agua, derech. conex. medidor 1''",
+        "unidad": "GL",
+        "costo": 1800000
+      },
+      {
+        "item": "Essap, agua, extensión por ml - asfaltado",
+        "unidad": "ML",
+        "costo": 126375
+      },
+      {
+        "item": "Essap, agua, extensión por ml - empedrado",
+        "unidad": "ML",
+        "costo": 82793
+      },
+      {
+        "item": "Essap, agua, interconexión medidor 3/4''",
+        "unidad": "ML",
+        "costo": 547421
+      },
+      {
+        "item": "Essap, colocado, Derecho de conexión",
+        "unidad": "ML",
+        "costo": 352000
+      }
+    ]
+  }
+  

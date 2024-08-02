@@ -1,0 +1,15 @@
+{
+    "referencias": {
+      "Mano de obra de colocación o instalación": "MDO",
+      "Material / Materiales / Insumos": "MAT",
+      "Unidad / Unitario": "Un.",
+      "Global / Total": "GL",
+      "Dolar": "U$",
+      "Metro cuadrado": "M2",
+      "Metro cúbico": "M3",
+      "Metro Lineal": "ML",
+      "Litro": "L",
+      "Viaje o transporte": "VJ"
+    }
+  }
+  

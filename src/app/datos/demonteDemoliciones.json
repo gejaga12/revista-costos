@@ -1,0 +1,45 @@
+{
+    "demonteDemoliciones": [
+      {
+        "item": "Demolición de paredes de hormigón",
+        "unidad": "M2",
+        "costo": 221800
+      },
+      {
+        "item": "Demolición de paredes de piedra",
+        "unidad": "M2",
+        "costo": 215800
+      },
+      {
+        "item": "Demolición de paredes de ladrillo",
+        "unidad": "M2",
+        "costo": 169700
+      },
+      {
+        "item": "Demolición de paredes de bloque",
+        "unidad": "M2",
+        "costo": 169700
+      },
+      {
+        "item": "Demolición de piso de concreto",
+        "unidad": "M2",
+        "costo": 152500
+      },
+      {
+        "item": "Demolición de piso de madera",
+        "unidad": "M2",
+        "costo": 152500
+      },
+      {
+        "item": "Demolición de techo de lámina",
+        "unidad": "M2",
+        "costo": 201700
+      },
+      {
+        "item": "Demolición de techo de teja",
+        "unidad": "M2",
+        "costo": 187500
+      }
+    ]
+  }
+  

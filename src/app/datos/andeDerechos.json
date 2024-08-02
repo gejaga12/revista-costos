@@ -1,0 +1,20 @@
+{
+    "andeDerechos": [
+      {
+        "item": "Ande Puesto de medición provisoria monofásica",
+        "unidad": "GL",
+        "costo": 720000
+      },
+      {
+        "item": "Ande Puesto de medición provisoria trifásica",
+        "unidad": "GL",
+        "costo": 900000
+      },
+      {
+        "item": "Monofásica con disyuntor de hasta 40 A",
+        "unidad": "UN",
+        "costo": 1080000
+      }
+    ]
+  }
+  

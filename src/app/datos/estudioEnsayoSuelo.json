@@ -1,0 +1,45 @@
+{
+    "estudioEnsayoSuelo": [
+      {
+        "item": "1 MANUAL: Sondeo - Extracción de muestras",
+        "unidad": "GL",
+        "costo": 0
+      },
+      {
+        "item": "Estudio de Fundaciones - Ensayo de laboratorio",
+        "unidad": "GL",
+        "costo": 0
+      },
+      {
+        "item": "Ubicación planimétrica de sondeos - Informe",
+        "unidad": "GL",
+        "costo": 0
+      },
+      {
+        "item": "2 MANUAL: Sondeo - Extracción de muestras",
+        "unidad": "ML",
+        "costo": 137500
+      },
+      {
+        "item": "Fundación: Informe final",
+        "unidad": "ML",
+        "costo": 100000
+      },
+      {
+        "item": "Proyecto de arquitectura",
+        "unidad": "ML",
+        "costo": 0
+      },
+      {
+        "item": "Cálculo estructural",
+        "unidad": "ML",
+        "costo": 0
+      },
+      {
+        "item": "Honorarios referencia Cálculo Estructural",
+        "unidad": "ML",
+        "costo": 234490
+      }
+    ]
+  }
+  

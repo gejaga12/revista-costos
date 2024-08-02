@@ -1,0 +1,25 @@
+{
+    "trabajos": [
+      {
+        "item": "Limpieza de terreno",
+        "unidad": "M2",
+        "costo": 270000
+      },
+      {
+        "item": "Vallado perimetral",
+        "unidad": "M2",
+        "costo": 450600
+      },
+      {
+        "item": "Vallado perimetral de obra",
+        "unidad": "M2",
+        "costo": 528000
+      },
+      {
+        "item": "Confección de cartel de obra",
+        "unidad": "M2",
+        "costo": 175000
+      }
+    ]
+  }
+  
