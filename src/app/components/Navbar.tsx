@@ -1,13 +1,26 @@
-// components/Navbar.js
+"use client"
 import React from 'react';
 import Image from 'next/image';
+import { FaSun, FaMoon } from 'react-icons/fa';
+import { useDarkMode } from '../hooks/useDarkMode';
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
+  const [theme, toggleTheme] = useDarkMode();
+
   return (
-    <nav className="bg-black p-4">
-      <div className="container mx-auto flex items-center">
-        <Image src="/logo.webp" alt="Logo" width={150} height={150} />
-        <h1 className="text-white text-2xl ml-4">Construction Costs</h1>
+    <nav className="bg-gray-800 p-6 dark:bg-gray-900">
+      <div className="container mx-auto flex items-center justify-between">
+        <div className="flex items-center">
+          <Image src="/logo.webp" alt="Logo" width={250} height={200} />
+          <h1 className="text-white text-2xl ml-4"></h1>
+        </div>
+        <button onClick={toggleTheme} className="text-white">
+          {theme === 'light' ? (
+            <FaMoon className="h-6 w-6" />
+          ) : (
+            <FaSun className="h-6 w-6" />
+          )}
+        </button>
       </div>
     </nav>
   );
