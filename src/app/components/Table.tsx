@@ -23,7 +23,7 @@ const Table: React.FC<TableProps> = ({ title, data = [], onSelectItem, allExpand
   };
 
   return (
-    <div className="overflow-x-auto mb-4">
+    <div className="overflow-x-auto mb-1">
       <div 
         className="text-sm flex items-center justify-between font-semibold my-2 bg-slate-600 hover:bg-slate-700 text-white p-2 cursor-pointer rounded-ee-lg rounded-ss-lg"
         onClick={toggleExpand}

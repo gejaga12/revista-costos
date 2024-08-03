@@ -163,5 +163,73 @@
       "unidad": "M2",
       "costo": 84775
     }
+  ],
+  "portonesAccesoVehicular": [
+    { "item": "Automatización incluye motor, cerebro electrónico y 2 controles", "unidad": "GL", "costo": 3200000 }
+  ],
+  "puertas": [
+    { "item": "Puerta vidriera cocina-lavadero", "unidad": "UN", "costo": 450000 },
+    { "item": "0,70 x 2,05 chapa doblada / herrajes.", "unidad": "UN", "costo": 500000 },
+    { "item": "0,90 x 2,05 chapa doblada / herrajes.", "unidad": "UN", "costo": 590000 },
+    { "item": "Puerta chapa standard 0,80 x 2,10 m.", "unidad": "UN", "costo": 240000 }
+  ],
+  "ventanasChapaDoblada": [
+    { "item": "1 Ventanas y vidrios incluidos", "unidad": "UN", "costo": 575000 },
+    { "item": "1,20 x 1,10 m.", "unidad": "UN", "costo": 625000 },
+    { "item": "1,50 x 1,10 m.", "unidad": "UN", "costo": 700000 },
+    { "item": "BALANCÍN DE HIERRO ÁNGULO", "unidad": "UN", "costo": 164525 }
+  ],
+  "cielosRasos": [
+    { "item": "A la cal Dosif 1:14", "unidad": "M2", "costo": 53315 },
+    { "item": "A la cal-Estruct.de madera - Dosif 1:14", "unidad": "M2", "costo": 128414 },
+    { "item": "A la cal Estruct.de hierro ángulo-Varilla 8 mm", "unidad": "M2", "costo": 306145 },
+    { "item": "De fibrocemento con chapas Multiso", "unidad": "M2", "costo": 398500 },
+    { "item": "De yeso cartón tipo Durlock", "unidad": "M2", "costo": 414000 },
+    { "item": "De machimbre de lapacho 1\"x2/3\"", "unidad": "M2", "costo": 216000 },
+    { "item": "De varillas de PVC rígido", "unidad": "M2", "costo": 369680 },
+    { "item": "De yeso, planchas 60x60x2,5 cm.", "unidad": "M2", "costo": 123500 },
+    { "item": "Incluye fijación-colocación", "unidad": "M2", "costo": 90000 },
+    { "item": "De poliestireno expandido Placas 1x1 m", "unidad": "M2", "costo": 80000 },
+    { "item": "De yeso con placas 60x60 o similar", "unidad": "M2", "costo": 595000 },
+    { "item": "De Poliestireno expandido Placas 1x1 m", "unidad": "M2", "costo": 195000 },
+    { "item": "De Fibra Mineral Placas 1x1 m", "unidad": "M2", "costo": 120000 }
+  ],
+  "revoquesMuros": [
+    { "item": "1 A la cal (Sobre las estructuras de interior) 1,5 cm", "unidad": "M2", "costo": 520860 },
+    { "item": "2 A la cal (Sobre las estructuras de interior) 1,5 cm", "unidad": "M2", "costo": 695477 }
+  ],
+  "pisos": [
+    { "item": "Alfombra múltiple 55,5 mm", "unidad": "M2", "costo": 82750 },
+    { "item": "Alfombra 6 mm", "unidad": "M2", "costo": 90000 },
+    { "item": "Alfombra de goma sintético americana 12 mm", "unidad": "M2", "costo": 110000 },
+    { "item": "Alisado cementicio (nivelado de piso de parquet 22,5 cm Dosif 1:5)", "unidad": "M2", "costo": 769793 },
+    { "item": "Baldosas de homigón sin vallar", "unidad": "M2", "costo": 561854 },
+    { "item": "Cerámica - Imitación 40x40x1/1,5 cm", "unidad": "M2", "costo": 331894 },
+    { "item": "Granítico (mosaicos) - base cemento blanco", "unidad": "M2", "costo": 121892 },
+    { "item": "Graníticos (mosaicos) - base cemento gris", "unidad": "M2", "costo": 132392 },
+    { "item": "Incluye el pulido final", "unidad": "M2", "costo": 67092 },
+    { "item": "Parqué machimbre de lapacho 1\"x1/2\"", "unidad": "M2", "costo": 396000 },
+    { "item": "Cerámicas - base cemento gris", "unidad": "M2", "costo": 132392 },
+    { "item": "Graníticos 20x20 cm", "unidad": "M2", "costo": 345718 }
+  ],
+  "zocalos": [
+    { "item": "Alfombra tipo Sierra", "unidad": "ML", "costo": 7156 },
+    { "item": "Cerámicas - base cemento gris (20x20)", "unidad": "ML", "costo": 5200 },
+    { "item": "Graníticos - base cemento blanco", "unidad": "ML", "costo": 7200 },
+    { "item": "Graníticos - base cemento gris", "unidad": "ML", "costo": 7186 },
+    { "item": "Graníticos 20x20 cm", "unidad": "ML", "costo": 13458 },
+    { "item": "Layota esmaltada 30 x 30", "unidad": "M2", "costo": 453478 }
+  ],
+  "revestimientos": [
+    { "item": "Azulejo Nacional", "unidad": "M2", "costo": 178025 },
+    { "item": "Azulejo Nacional (Vidrios incluidos)", "unidad": "M2", "costo": 190000 },
+    { "item": "Azulejo Brasilero", "unidad": "M2", "costo": 216000 },
+    { "item": "Azulejo Portobelo", "unidad": "M2", "costo": 325000 },
+    { "item": "Adoquines de Piedra Laja (m²)", "unidad": "M2", "costo": 410000 }
+  ],
+  "pinturaEmpapelado": [
+    { "item": "Empapelado (Lavable, 0,50 x 10 m, incluye costura)", "unidad": "M2", "costo": 51700 },
+    { "item": "A la cal (Interior, incluye mano de obra)", "unidad": "M2", "costo": 16000 },
+    { "item": "A la cal (Interior Nacional)", "unidad": "M2", "costo": 23000 }
   ]
 }
