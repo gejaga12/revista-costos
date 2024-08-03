@@ -157,10 +157,10 @@ const Home: React.FC = () => {
       <Navbar />
       <div className="container mx-auto p-4">
         <ReferencesDashboard />
-        <div className="flex justify-evenly items-center mb-4 text-xs">
+        <div className="flex flex-col md:flex-row justify-evenly items-center mb-4 text-xs space-y-4 md:space-y-0 md:space-x-4">
           <button
             onClick={toggleExpandAll}
-            className="bg-slate-200 hover:bg-slate-300 text-black py-1.5 px-1.5 rounded mr-4"
+            className="bg-slate-200 hover:bg-slate-300 text-black py-1.5 px-1.5 rounded"
           >
             {allExpanded ? 'Contraer Todo' : 'Expandir Todo'}
           </button>
@@ -174,7 +174,7 @@ const Home: React.FC = () => {
               className="p-2 rounded border"
             />
           </div>
-          <div className='flex items-center ml-4'>
+          <div className='flex items-center'>
             <label htmlFor="category-select" className="mr-2 text-gray-500 dark:text-white">Categoría:</label>
             <select
               id="category-select"
