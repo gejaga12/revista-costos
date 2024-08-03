@@ -1,15 +1,22 @@
+// components/Table.tsx
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TableData } from '../../types';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 interface TableProps {
   title: string;
   data: TableData[];
+  onSelectItem: (item: TableData) => void;
+  allExpanded: boolean;
 }
 
-const Table: React.FC<TableProps> = ({ title, data = [] }) => {  // Proporcionar un valor predeterminado vacío para data
+const Table: React.FC<TableProps> = ({ title, data = [], onSelectItem, allExpanded }) => {
   const [isExpanded, setIsExpanded] = useState(true);
+
+  useEffect(() => {
+    setIsExpanded(allExpanded);
+  }, [allExpanded]);
 
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
@@ -18,7 +25,7 @@ const Table: React.FC<TableProps> = ({ title, data = [] }) => {  // Proporcionar
   return (
     <div className="overflow-x-auto mb-4">
       <div 
-        className="flex items-center justify-between text-lg font-semibold my-2 bg-slate-600 text-white p-2 cursor-pointer rounded-ee-lg rounded-ss-lg"
+        className="text-sm flex items-center justify-between font-semibold my-2 bg-slate-600 hover:bg-slate-700 text-white p-2 cursor-pointer rounded-ee-lg rounded-ss-lg"
         onClick={toggleExpand}
       >
         <h2>{title}</h2>
@@ -26,7 +33,7 @@ const Table: React.FC<TableProps> = ({ title, data = [] }) => {  // Proporcionar
           {isExpanded ? <FaChevronUp /> : <FaChevronDown />}
         </span>
       </div>
-      {isExpanded && data && data.length > 0 && (  // Añadir comprobación para verificar que data no es undefined y tiene elementos
+      {isExpanded && data.length > 0 && (
         <table className="min-w-full bg-white dark:bg-gray-800 text-xs">
           <thead>
             <tr>
@@ -41,19 +48,24 @@ const Table: React.FC<TableProps> = ({ title, data = [] }) => {  // Proporcionar
                 key={index} 
                 className="even:bg-gray-100 odd:bg-white dark:even:bg-gray-700 dark:odd:bg-gray-800 hover:bg-slate-100 dark:hover:bg-slate-700"
               >
-                <td className="border px-4 py-2 text-black dark:text-white">{row.item}</td>
-                <td className="border px-4 py-2 text-black dark:text-white">{row.unidad}</td>
-                <td className="border px-4 py-2 text-black dark:text-white">${row.costo}</td>
+                <td className="border px-4 py-2 text-black dark:text-white text-xs">{row.item}</td>
+                <td className="border px-4 py-2 text-black dark:text-white text-xs">{row.unidad}</td>
+                <td 
+                  className="text-xs border px-4 py-2 text-black dark:text-white cursor-pointer hover:underline"
+                  onClick={() => onSelectItem(row)}
+                >
+                  ${row.costo}
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
       )}
-      {isExpanded && (!data || data.length === 0) && (
+      {isExpanded && data.length === 0 && (
         <div className="text-center text-gray-500 dark:text-gray-400 p-4">
           No data available
         </div>
-      )}
+      )}      
     </div>
   );
 };

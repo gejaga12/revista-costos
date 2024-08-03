@@ -23,7 +23,7 @@ const ReferencesDashboard: React.FC = () => {
   return (
     <div className="overflow-x-auto mb-4">
       <div className="p-2 bg-white dark:bg-gray-800 rounded-lg shadow-md">
-        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Referencias</h2>
+        <h2 className="text-sm font-semibold mb-2 text-gray-900 dark:text-white">Referencias</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1">
           {Object.entries(referencias).map(([key, value], index) => (
             <div key={index} className="flex items-center p-2 bg-gray-100 dark:bg-gray-700 rounded-md">
@@ -31,8 +31,8 @@ const ReferencesDashboard: React.FC = () => {
                 {iconMap[key]}
               </div>
               <div className="ml-4">
-                <div className="text-sm font-medium text-gray-900 dark:text-white">{key}</div>
-                <div className="text-xs text-gray-500 dark:text-gray-400">{value}</div>
+                <div className="text-[10px] font-medium text-gray-900 dark:text-white">{key}</div>
+                <div className="text-[8px] text-gray-500 dark:text-gray-400">{value}</div>
               </div>
             </div>
           ))}
