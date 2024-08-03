@@ -1,69 +1,167 @@
 {
-    "referencias": {
-      "Mano de obra de colocación o instalación": "MDO",
-      "Material / Materiales / Insumos": "MAT",
-      "Unidad / Unitario": "Un.",
-      "Global / Total": "GL",
-      "Dolar": "U$",
-      "Metro cuadrado": "M2",
-      "Metro cúbico": "M3",
-      "Metro Lineal": "ML",
-      "Litro": "L",
-      "Viaje o transporte": "VJ"
-    },
-    "estudioEnsayoSuelo": [
-      { "item": "1 MANUAL: Sondeo - Extracción de muestras", "unidad": "GL", "costo": 0 },
-      { "item": "Estudio de Fundaciones - Ensayo de laboratorio", "unidad": "GL", "costo": 0 },
-      { "item": "Ubicación planimétrica de sondeos - Informe", "unidad": "GL", "costo": 0 },
-      { "item": "2 MANUAL: Sondeo - Extracción de muestras", "unidad": "ML", "costo": 137500 },
-      { "item": "Fundación: Informe final", "unidad": "ML", "costo": 100000 },
-      { "item": "Proyecto de arquitectura", "unidad": "ML", "costo": 0 },
-      { "item": "Cálculo estructural", "unidad": "ML", "costo": 0 },
-      { "item": "Honorarios referencia Cálculo Estructural", "unidad": "ML", "costo": 234490 }
-    ],
-    "pagosComún": [
-      { "item": "1 Galpones y tinglados abiertos", "unidad": "M2", "costo": 693700 },
-      { "item": "1 Nivel con techo de fibrocemento", "unidad": "M2", "costo": 1179000 },
-      { "item": "1 Nivel con techo chapa trapezoidal", "unidad": "M2", "costo": 1333000 },
-      { "item": "2 Niveles con techo chapa trapezoidal", "unidad": "M2", "costo": 1491000 },
-      { "item": "2 Niveles con techo liviano", "unidad": "M2", "costo": 1870000 },
-      { "item": "2 Niveles con techo pesado", "unidad": "M2", "costo": 2257000 },
-      { "item": "Hasta 4 niveles", "unidad": "M2", "costo": 2676000 },
-      { "item": "Hasta 5 niveles", "unidad": "M2", "costo": 3084000 },
-      { "item": "Hasta 5 niveles con ascensor", "unidad": "M2", "costo": 3102000 },
-      { "item": "Hasta 5 niveles con escalera", "unidad": "M2", "costo": 2676000 },
-      { "item": "Hasta 5 niveles con ascensor y escalera", "unidad": "M2", "costo": 3725000 },
-      { "item": "Hasta 5 niveles con sótano", "unidad": "M2", "costo": 3725000 },
-      { "item": "Más de 5 niveles", "unidad": "M2", "costo": 5203000 }
-    ],
-    "andeDerechos": [
+  "referencias": {
+    "Mano de obra de colocación o instalación": "MDO",
+    "Material / Materiales / Insumos": "MAT",
+    "Unidad / Unitario": "Un.",
+    "Global / Total": "GL",
+    "Dolar": "U$",
+    "Metro cuadrado": "M2",
+    "Metro cúbico": "M3",
+    "Metro Lineal": "ML",
+    "Litro": "L",
+    "Viaje o transporte": "VJ"
+  },
+  "estudioEnsayoSuelo": [
+    { "item": "1 MANUAL: Sondeo - Extracción de muestras", "unidad": "GL", "costo": 0 },
+    { "item": "Estudio de Fundaciones - Ensayo de laboratorio", "unidad": "GL", "costo": 0 },
+    { "item": "Ubicación planimétrica de sondeos - Informe", "unidad": "GL", "costo": 0 },
+    { "item": "2 MANUAL: Sondeo - Extracción de muestras", "unidad": "ML", "costo": 137500 },
+    { "item": "Fundación: Informe final", "unidad": "ML", "costo": 100000 },
+    { "item": "Proyecto de arquitectura", "unidad": "ML", "costo": 0 },
+    { "item": "Cálculo estructural", "unidad": "ML", "costo": 0 },
+    { "item": "Honorarios referencia Cálculo Estructural", "unidad": "ML", "costo": 234490 }
+  ],
+  "pagosComun": [
+    { "item": "1 Galpones y tinglados abiertos", "unidad": "M2", "costo": 693700 },
+    { "item": "1 Nivel con techo de fibrocemento", "unidad": "M2", "costo": 1179000 },
+    { "item": "1 Nivel con techo chapa trapezoidal", "unidad": "M2", "costo": 1333000 },
+    { "item": "2 Niveles con techo chapa trapezoidal", "unidad": "M2", "costo": 1491000 },
+    { "item": "2 Niveles con techo liviano", "unidad": "M2", "costo": 1870000 },
+    { "item": "2 Niveles con techo pesado", "unidad": "M2", "costo": 2257000 },
+    { "item": "Hasta 4 niveles", "unidad": "M2", "costo": 2676000 },
+    { "item": "Hasta 5 niveles", "unidad": "M2", "costo": 3084000 },
+    { "item": "Hasta 5 niveles con ascensor", "unidad": "M2", "costo": 3102000 },
+    { "item": "Hasta 5 niveles con escalera", "unidad": "M2", "costo": 2676000 },
+    { "item": "Hasta 5 niveles con ascensor y escalera", "unidad": "M2", "costo": 3725000 },
+    { "item": "Hasta 5 niveles con sótano", "unidad": "M2", "costo": 3725000 },
+    { "item": "Más de 5 niveles", "unidad": "M2", "costo": 5203000 }
+  ],
+  "andeDerechos": [
       { "item": "Ande Puesto de medición provisoria monofásica", "unidad": "GL", "costo": 720000 },
       { "item": "Ande Puesto de medición provisoria trifásica", "unidad": "GL", "costo": 900000 },
       { "item": "Monofásica con disyuntor de hasta 40 A", "unidad": "UN", "costo": 1080000 }
-    ],
-    "essapDerechos": [
+  ],
+  "essapDerechos": [
       { "item": "Essap, agua, derech. conex. medidor 3/4''", "unidad": "GL", "costo": 907650 },
       { "item": "Essap, agua, derech. conex. medidor 1''", "unidad": "GL", "costo": 1800000 },
       { "item": "Essap, agua, extensión por ml - asfaltado", "unidad": "ML", "costo": 126375 },
       { "item": "Essap, agua, extensión por ml - empedrado", "unidad": "ML", "costo": 82793 },
-      { "item": "Essap, agua, interconexión medidor 3/4''", "unidad": "ML", "costo": 547421 },
-      { "item": "Essap, colocado, Derecho de conexión", "unidad": "ML", "costo": 352000 }
-    ],
-    "trabajos": [
-      { "item": "Limpieza de terreno", "unidad": "M2", "costo": 270000 },
-      { "item": "Vallado perimetral", "unidad": "M2", "costo": 450600 },
-      { "item": "Vallado perimetral de obra", "unidad": "M2", "costo": 528000 },
-      { "item": "Confección de cartel de obra", "unidad": "M2", "costo": 175000 }
-    ],
-    "demonteDemoliciones": [
-      { "item": "Demolición de paredes de hormigón", "unidad": "M2", "costo": 221800 },
-      { "item": "Demolición de paredes de piedra", "unidad": "M2", "costo": 215800 },
-      { "item": "Demolición de paredes de ladrillo", "unidad": "M2", "costo": 169700 },
-      { "item": "Demolición de paredes de bloque", "unidad": "M2", "costo": 169700 },
-      { "item": "Demolición de piso de concreto", "unidad": "M2", "costo": 152500 },
-      { "item": "Demolición de piso de madera", "unidad": "M2", "costo": 152500 },
-      { "item": "Demolición de techo de lámina", "unidad": "M2", "costo": 201700 },
-      { "item": "Demolición de techo de teja", "unidad": "M2", "costo": 187500 }
-    ]
-  }
-  
+      { "item": "Essap, agua, interconexión medidor 3/4''", "unidad": "ML", "costo": 547421 }
+  ],
+  "trabajos": [
+    { "item": "Limpieza de terreno", "unidad": "M2", "costo": 270000 }
+  ],
+  "demonteDemoliciones": [
+    { "item": "Demolición de paredes de hormigón", "unidad": "M2", "costo": 221800 },
+    { "item": "Demolición de paredes de piedra", "unidad": "M2", "costo": 215800 },
+    { "item": "Demolición de paredes de ladrillo", "unidad": "M2", "costo": 169700 }
+  ],
+  "estructurasMetalicasConTechoDeChapa": [
+    {
+      "item": "Cubierta con chapa trapezoidal/canalada + perfiles+chapas acero galvanizado 2' [N2]",
+      "unidad": "M2",
+      "costo": 170283
+    },
+    {
+      "item": "Cubierta con chapa trapezoidal N3 + perfiles+chapas acero galvanizado 3' [N2]",
+      "unidad": "M2",
+      "costo": 253105
+    }
+  ],
+  "estructurasPremoldeadas": [
+    {
+      "item": "Losas listadas de cemento - h = 10 cm - base=20 cm incluye capa de compresión y armaduras",
+      "unidad": "M2",
+      "costo": 284700
+    },
+    {
+      "item": "Losas Rap-Stderson tipo milenio 290 kg/m2, vigas y sujeta-ladrillos-hormigón- h=4,50 m incluye capa de compresión",
+      "unidad": "M2",
+      "costo": 221827
+    }
+  ],
+  "estructurasDeMadera": [
+    {
+      "item": "Entrepiso de lapacho machimbrado. Luz = 4 mts.",
+      "unidad": "M2",
+      "costo": 240500
+    },
+    {
+      "item": "Tejas lapacho 2x5\"/2\"x8\"/3\"/4",
+      "unidad": "M2",
+      "costo": 240500
+    }
+  ],
+  "estructurasDeAlbanileria": [
+    {
+      "item": "Revoque con ladrillos colocados tirantes de boquilla de 2,5 cm",
+      "unidad": "M2",
+      "costo": 187358
+    }
+  ],
+  "albanileriaDeLadrillos": [
+    {
+      "item": "Elevación de ancho de 30 cm ladrillos comunes Dosif= 1:10",
+      "unidad": "M2",
+      "costo": 153581
+    },
+    {
+      "item": "Muro de ladrillos de 0,15 m",
+      "unidad": "M2",
+      "costo": 230686
+    }
+  ],
+  "aislacionVertical": [
+    {
+      "item": "1 Vertical (aditivo hidrof. Satoifix",
+      "unidad": "M2",
+      "costo": 62834
+    },
+    {
+      "item": "2 Con aditivo hidrófugo Asfaltofixe",
+      "unidad": "M2",
+      "costo": 62834
+    }
+  ],
+  "aislacionDeBanos": [
+    {
+      "item": "1 Con impermeabilizante cementicio PennsyIvania",
+      "unidad": "M2",
+      "costo": 47500
+    },
+    {
+      "item": "2 Con Desol Flex (4 manos)",
+      "unidad": "M2",
+      "costo": 47500
+    }
+  ],
+  "aislacionTermica": [
+    {
+      "item": "Espuma RUF alimlaminada 10mm simple cara",
+      "unidad": "M2",
+      "costo": 31650
+    },
+    {
+      "item": "Espuma RUF c/forro de aluminio 10 mm",
+      "unidad": "M2",
+      "costo": 31750
+    }
+  ],
+  "techosDeFibrocemento": [
+    {
+      "item": "Ondulada de 6 mm (3,66 x 1,10 m)",
+      "unidad": "M2",
+      "costo": 206409
+    },
+    {
+      "item": "Autoportante de 8 mm",
+      "unidad": "M2",
+      "costo": 92988
+    },
+    {
+      "item": "Maxiplate autoportante (4,10x1,06x0,06)",
+      "unidad": "M2",
+      "costo": 84775
+    }
+  ]
+}
