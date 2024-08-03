@@ -94,13 +94,14 @@ const Home: React.FC = () => {
       <Navbar />
       <div className="container mx-auto p-4">
         <ReferencesDashboard />
-        <div className="flex justify-end items-center mb-4 text-xs">
+        <div className="flex justify-evenly items-center mb-4 text-xs">
           <button
             onClick={toggleExpandAll}
-            className="bg-slate-600 hover:bg-slate-700 text-white py-1.5 px-1.5 rounded mr-4"
+            className="bg-slate-200 hover:bg-slate-300 text-black py-1.5 px-1.5 rounded mr-4"
           >
             {allExpanded ? 'Contraer Todo' : 'Expandir Todo'}
           </button>
+          <div className='flex items-center'>
           <FaSearch  size={15} className='mr-2 text-gray-500 dark:text-white'/>
           <input
             type="text"
@@ -109,6 +110,7 @@ const Home: React.FC = () => {
             onChange={handleSearchChange}
             className="p-2 rounded border"
           />
+          </div>
         </div>
         {tables.filter(table => filterTables(table.title)).map((table, index) => (
           <Table

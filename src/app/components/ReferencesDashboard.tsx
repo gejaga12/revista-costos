@@ -27,7 +27,7 @@ const ReferencesDashboard: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1">
           {Object.entries(referencias).map(([key, value], index) => (
             <div key={index} className="flex items-center p-2 bg-gray-100 dark:bg-gray-700 rounded-md">
-              <div className="text-2xl text-blue-500 dark:text-blue-300">
+              <div className="text-2xl text-red-600 dark:text-blue-300">
                 {iconMap[key]}
               </div>
               <div className="ml-4">

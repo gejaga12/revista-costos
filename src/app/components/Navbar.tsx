@@ -8,7 +8,7 @@ const Navbar: React.FC = () => {
   const [theme, toggleTheme] = useDarkMode();
 
   return (
-    <nav className="bg-gray-800 p-6 dark:bg-gray-900">
+    <nav className="bg-black p-6 dark:bg-black">
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex items-center">
           <Image src="/logo.webp" alt="Logo" width={250} height={200} />

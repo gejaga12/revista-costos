@@ -1,4 +1,3 @@
-// components/Table.tsx
 "use client"
 import React, { useState, useEffect } from 'react';
 import { TableData } from '../../types';
@@ -23,13 +22,13 @@ const Table: React.FC<TableProps> = ({ title, data = [], onSelectItem, allExpand
   };
 
   return (
-    <div className="overflow-x-auto mb-1">
+    <div className="overflow-x-auto mb-4">
       <div 
-        className="text-sm flex items-center justify-between font-semibold my-2 bg-slate-600 hover:bg-slate-700 text-white p-2 cursor-pointer rounded-ee-lg rounded-ss-lg"
+        className="text-sm flex items-center justify-between font-semibold  bg-gray-200 dark:bg-gray-700 dark:text-white text-black p-2 cursor-pointer rounded-ee-lg rounded-ss-lg"
         onClick={toggleExpand}
       >
         <h2>{title}</h2>
-        <span className="ml-2">
+        <span className="ml-2 bg-red-600 dark:bg-slate-400 p-0.5 border-black border text-white">
           {isExpanded ? <FaChevronUp /> : <FaChevronDown />}
         </span>
       </div>
@@ -37,9 +36,9 @@ const Table: React.FC<TableProps> = ({ title, data = [], onSelectItem, allExpand
         <table className="min-w-full bg-white dark:bg-gray-800 text-xs">
           <thead>
             <tr>
-              <th className="py-2 px-4 text-black dark:text-white text-start">ITEM</th>
-              <th className="py-2 px-4 text-black dark:text-white text-start">UNIDAD</th>
-              <th className="py-2 px-4 text-black dark:text-white text-start">COSTO</th>
+              <th className="py-2 px-4 text-black dark:text-white text-start" style={{ width: '60%' }}>ITEM</th>
+              <th className="py-2 px-4 text-black dark:text-white text-start" style={{ width: '20%' }}>UNIDAD</th>
+              <th className="py-2 px-4 text-black dark:text-white text-start" style={{ width: '20%' }}>COSTO</th>
             </tr>
           </thead>
           <tbody>
@@ -48,11 +47,12 @@ const Table: React.FC<TableProps> = ({ title, data = [], onSelectItem, allExpand
                 key={index} 
                 className="even:bg-gray-100 odd:bg-white dark:even:bg-gray-700 dark:odd:bg-gray-800 hover:bg-slate-100 dark:hover:bg-slate-700"
               >
-                <td className="border px-4 py-2 text-black dark:text-white text-xs">{row.item}</td>
-                <td className="border px-4 py-2 text-black dark:text-white text-xs">{row.unidad}</td>
+                <td className="border px-4 py-1 text-black dark:text-white text-xs" style={{ width: '60%' }}>{row.item}</td>
+                <td className="border px-4 py-1 text-black dark:text-white text-xs" style={{ width: '20%' }}>{row.unidad}</td>
                 <td 
-                  className="text-xs border px-4 py-2 text-black dark:text-white cursor-pointer hover:underline"
+                  className="text-xs border px-4 py-1 text-black dark:text-white cursor-pointer hover:underline"
                   onClick={() => onSelectItem(row)}
+                  style={{ width: '20%' }}
                 >
                   ${row.costo}
                 </td>
