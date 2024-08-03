@@ -12,224 +12,242 @@
     "Viaje o transporte": "VJ"
   },
   "estudioEnsayoSuelo": [
-    { "item": "1 MANUAL: Sondeo - Extracción de muestras", "unidad": "GL", "costo": 0 },
-    { "item": "Estudio de Fundaciones - Ensayo de laboratorio", "unidad": "GL", "costo": 0 },
-    { "item": "Ubicación planimétrica de sondeos - Informe", "unidad": "GL", "costo": 0 },
-    { "item": "2 MANUAL: Sondeo - Extracción de muestras", "unidad": "ML", "costo": 137500 },
-    { "item": "Fundación: Informe final", "unidad": "ML", "costo": 100000 },
-    { "item": "Proyecto de arquitectura", "unidad": "ML", "costo": 0 },
-    { "item": "Cálculo estructural", "unidad": "ML", "costo": 0 },
-    { "item": "Honorarios referencia Cálculo Estructural", "unidad": "ML", "costo": 234490 }
+    { "item": "1 MANUAL: Sondeo - Extracción de muestras", "unidad": "GL", "costo": 0, "categoria": "Estudio y Ensayo de Suelo" },
+    { "item": "Estudio de Fundaciones - Ensayo de laboratorio", "unidad": "GL", "costo": 0, "categoria": "Estudio y Ensayo de Suelo" },
+    { "item": "Ubicación planimétrica de sondeos - Informe", "unidad": "GL", "costo": 0, "categoria": "Estudio y Ensayo de Suelo" },
+    { "item": "2 MANUAL: Sondeo - Extracción de muestras", "unidad": "ML", "costo": 137500, "categoria": "Estudio y Ensayo de Suelo" },
+    { "item": "Fundación: Informe final", "unidad": "ML", "costo": 100000, "categoria": "Estudio y Ensayo de Suelo" },
+    { "item": "Proyecto de arquitectura", "unidad": "ML", "costo": 0, "categoria": "Estudio y Ensayo de Suelo" },
+    { "item": "Cálculo estructural", "unidad": "ML", "costo": 0, "categoria": "Estudio y Ensayo de Suelo" },
+    { "item": "Honorarios referencia Cálculo Estructural", "unidad": "ML", "costo": 234490, "categoria": "Estudio y Ensayo de Suelo" }
   ],
   "pagosComun": [
-    { "item": "1 Galpones y tinglados abiertos", "unidad": "M2", "costo": 693700 },
-    { "item": "1 Nivel con techo de fibrocemento", "unidad": "M2", "costo": 1179000 },
-    { "item": "1 Nivel con techo chapa trapezoidal", "unidad": "M2", "costo": 1333000 },
-    { "item": "2 Niveles con techo chapa trapezoidal", "unidad": "M2", "costo": 1491000 },
-    { "item": "2 Niveles con techo liviano", "unidad": "M2", "costo": 1870000 },
-    { "item": "2 Niveles con techo pesado", "unidad": "M2", "costo": 2257000 },
-    { "item": "Hasta 4 niveles", "unidad": "M2", "costo": 2676000 },
-    { "item": "Hasta 5 niveles", "unidad": "M2", "costo": 3084000 },
-    { "item": "Hasta 5 niveles con ascensor", "unidad": "M2", "costo": 3102000 },
-    { "item": "Hasta 5 niveles con escalera", "unidad": "M2", "costo": 2676000 },
-    { "item": "Hasta 5 niveles con ascensor y escalera", "unidad": "M2", "costo": 3725000 },
-    { "item": "Hasta 5 niveles con sótano", "unidad": "M2", "costo": 3725000 },
-    { "item": "Más de 5 niveles", "unidad": "M2", "costo": 5203000 }
+    { "item": "1 Galpones y tinglados abiertos", "unidad": "M2", "costo": 693700, "categoria": "Pagos del Comunero - Derecho de Construcción" },
+    { "item": "1 Nivel con techo de fibrocemento", "unidad": "M2", "costo": 1179000, "categoria": "Pagos del Comunero - Derecho de Construcción" },
+    { "item": "1 Nivel con techo chapa trapezoidal", "unidad": "M2", "costo": 1333000, "categoria": "Pagos del Comunero - Derecho de Construcción" },
+    { "item": "2 Niveles con techo chapa trapezoidal", "unidad": "M2", "costo": 1491000, "categoria": "Pagos del Comunero - Derecho de Construcción" },
+    { "item": "2 Niveles con techo liviano", "unidad": "M2", "costo": 1870000, "categoria": "Pagos del Comunero - Derecho de Construcción" },
+    { "item": "2 Niveles con techo pesado", "unidad": "M2", "costo": 2257000, "categoria": "Pagos del Comunero - Derecho de Construcción" },
+    { "item": "Hasta 4 niveles", "unidad": "M2", "costo": 2676000, "categoria": "Pagos del Comunero - Derecho de Construcción" },
+    { "item": "Hasta 5 niveles", "unidad": "M2", "costo": 3084000, "categoria": "Pagos del Comunero - Derecho de Construcción" },
+    { "item": "Hasta 5 niveles con ascensor", "unidad": "M2", "costo": 3102000, "categoria": "Pagos del Comunero - Derecho de Construcción" },
+    { "item": "Hasta 5 niveles con escalera", "unidad": "M2", "costo": 2676000, "categoria": "Pagos del Comunero - Derecho de Construcción" },
+    { "item": "Hasta 5 niveles con ascensor y escalera", "unidad": "M2", "costo": 3725000, "categoria": "Pagos del Comunero - Derecho de Construcción" },
+    { "item": "Hasta 5 niveles con sótano", "unidad": "M2", "costo": 3725000, "categoria": "Pagos del Comunero - Derecho de Construcción" },
+    { "item": "Más de 5 niveles", "unidad": "M2", "costo": 5203000, "categoria": "Pagos del Comunero - Derecho de Construcción" }
   ],
   "andeDerechos": [
-      { "item": "Ande Puesto de medición provisoria monofásica", "unidad": "GL", "costo": 720000 },
-      { "item": "Ande Puesto de medición provisoria trifásica", "unidad": "GL", "costo": 900000 },
-      { "item": "Monofásica con disyuntor de hasta 40 A", "unidad": "UN", "costo": 1080000 }
+      { "item": "Ande Puesto de medición provisoria monofásica", "unidad": "GL", "costo": 720000, "categoria": "Ande - Derechos" },
+      { "item": "Ande Puesto de medición provisoria trifásica", "unidad": "GL", "costo": 900000, "categoria": "Ande - Derechos" },
+      { "item": "Monofásica con disyuntor de hasta 40 A", "unidad": "UN", "costo": 1080000, "categoria": "Ande - Derechos" }
   ],
   "essapDerechos": [
-      { "item": "Essap, agua, derech. conex. medidor 3/4''", "unidad": "GL", "costo": 907650 },
-      { "item": "Essap, agua, derech. conex. medidor 1''", "unidad": "GL", "costo": 1800000 },
-      { "item": "Essap, agua, extensión por ml - asfaltado", "unidad": "ML", "costo": 126375 },
-      { "item": "Essap, agua, extensión por ml - empedrado", "unidad": "ML", "costo": 82793 },
-      { "item": "Essap, agua, interconexión medidor 3/4''", "unidad": "ML", "costo": 547421 }
+      { "item": "Essap, agua, derech. conex. medidor 3/4''", "unidad": "GL", "costo": 907650, "categoria": "Essap - Derechos" },
+      { "item": "Essap, agua, derech. conex. medidor 1''", "unidad": "GL", "costo": 1800000, "categoria": "Essap - Derechos" },
+      { "item": "Essap, agua, extensión por ml - asfaltado", "unidad": "ML", "costo": 126375, "categoria": "Essap - Derechos" },
+      { "item": "Essap, agua, extensión por ml - empedrado", "unidad": "ML", "costo": 82793, "categoria": "Essap - Derechos" },
+      { "item": "Essap, agua, interconexión medidor 3/4''", "unidad": "ML", "costo": 547421, "categoria": "Essap - Derechos" }
   ],
   "trabajos": [
-    { "item": "Limpieza de terreno", "unidad": "M2", "costo": 270000 }
+    { "item": "Limpieza de terreno", "unidad": "M2", "costo": 270000, "categoria": "Trabajos" }
   ],
   "demonteDemoliciones": [
-    { "item": "Demolición de paredes de hormigón", "unidad": "M2", "costo": 221800 },
-    { "item": "Demolición de paredes de piedra", "unidad": "M2", "costo": 215800 },
-    { "item": "Demolición de paredes de ladrillo", "unidad": "M2", "costo": 169700 }
+    { "item": "Demolición de paredes de hormigón", "unidad": "M2", "costo": 221800, "categoria": "Demonte y Demoliciones" },
+    { "item": "Demolición de paredes de piedra", "unidad": "M2", "costo": 215800, "categoria": "Demonte y Demoliciones" },
+    { "item": "Demolición de paredes de ladrillo", "unidad": "M2", "costo": 169700, "categoria": "Demonte y Demoliciones" }
   ],
   "estructurasMetalicasConTechoDeChapa": [
     {
       "item": "Cubierta con chapa trapezoidal/canalada + perfiles+chapas acero galvanizado 2' [N2]",
       "unidad": "M2",
-      "costo": 170283
+      "costo": 170283,
+      "categoria": "Estructuras Metálicas con Techo de Chapa"
     },
     {
       "item": "Cubierta con chapa trapezoidal N3 + perfiles+chapas acero galvanizado 3' [N2]",
       "unidad": "M2",
-      "costo": 253105
+      "costo": 253105,
+      "categoria": "Estructuras Metálicas con Techo de Chapa"
     }
   ],
   "estructurasPremoldeadas": [
     {
       "item": "Losas listadas de cemento - h = 10 cm - base=20 cm incluye capa de compresión y armaduras",
       "unidad": "M2",
-      "costo": 284700
+      "costo": 284700,
+      "categoria": "Estructuras Premoldeadas"
     },
     {
       "item": "Losas Rap-Stderson tipo milenio 290 kg/m2, vigas y sujeta-ladrillos-hormigón- h=4,50 m incluye capa de compresión",
       "unidad": "M2",
-      "costo": 221827
+      "costo": 221827,
+      "categoria": "Estructuras Premoldeadas"
     }
   ],
   "estructurasDeMadera": [
     {
       "item": "Entrepiso de lapacho machimbrado. Luz = 4 mts.",
       "unidad": "M2",
-      "costo": 240500
+      "costo": 240500,
+      "categoria": "Estructuras de Madera"
     },
     {
       "item": "Tejas lapacho 2x5\"/2\"x8\"/3\"/4",
       "unidad": "M2",
-      "costo": 240500
+      "costo": 240500,
+      "categoria": "Estructuras de Madera"
     }
   ],
   "estructurasDeAlbanileria": [
     {
       "item": "Revoque con ladrillos colocados tirantes de boquilla de 2,5 cm",
       "unidad": "M2",
-      "costo": 187358
+      "costo": 187358,
+      "categoria": "Estructuras de Albañilería"
     }
   ],
   "albanileriaDeLadrillos": [
     {
       "item": "Elevación de ancho de 30 cm ladrillos comunes Dosif= 1:10",
       "unidad": "M2",
-      "costo": 153581
+      "costo": 153581,
+      "categoria": "Albañilería de Ladrillos"
     },
     {
       "item": "Muro de ladrillos de 0,15 m",
       "unidad": "M2",
-      "costo": 230686
+      "costo": 230686,
+      "categoria": "Albañilería de Ladrillos"
     }
   ],
   "aislacionVertical": [
     {
       "item": "1 Vertical (aditivo hidrof. Satoifix",
       "unidad": "M2",
-      "costo": 62834
+      "costo": 62834,
+      "categoria": "Aislación Vertical"
     },
     {
       "item": "2 Con aditivo hidrófugo Asfaltofixe",
       "unidad": "M2",
-      "costo": 62834
+      "costo": 62834,
+      "categoria": "Aislación Vertical"
     }
   ],
   "aislacionDeBanos": [
     {
       "item": "1 Con impermeabilizante cementicio PennsyIvania",
       "unidad": "M2",
-      "costo": 47500
+      "costo": 47500,
+      "categoria": "Aislación de Baños"
     },
     {
       "item": "2 Con Desol Flex (4 manos)",
       "unidad": "M2",
-      "costo": 47500
+      "costo": 47500,
+      "categoria": "Aislación de Baños"
     }
   ],
   "aislacionTermica": [
     {
       "item": "Espuma RUF alimlaminada 10mm simple cara",
       "unidad": "M2",
-      "costo": 31650
+      "costo": 31650,
+      "categoria": "Aislación Térmica"
     },
     {
       "item": "Espuma RUF c/forro de aluminio 10 mm",
       "unidad": "M2",
-      "costo": 31750
+      "costo": 31750,
+      "categoria": "Aislación Térmica"
     }
   ],
   "techosDeFibrocemento": [
     {
       "item": "Ondulada de 6 mm (3,66 x 1,10 m)",
       "unidad": "M2",
-      "costo": 206409
+      "costo": 206409,
+      "categoria": "Techos de Fibrocemento"
     },
     {
       "item": "Autoportante de 8 mm",
       "unidad": "M2",
-      "costo": 92988
+      "costo": 92988,
+      "categoria": "Techos de Fibrocemento"
     },
     {
       "item": "Maxiplate autoportante (4,10x1,06x0,06)",
       "unidad": "M2",
-      "costo": 84775
+      "costo": 84775,
+      "categoria": "Techos de Fibrocemento"
     }
   ],
   "portonesAccesoVehicular": [
-    { "item": "Automatización incluye motor, cerebro electrónico y 2 controles", "unidad": "GL", "costo": 3200000 }
+    { "item": "Automatización incluye motor, cerebro electrónico y 2 controles", "unidad": "GL", "costo": 3200000, "categoria": "Portones Acceso Vehicular" }
   ],
   "puertas": [
-    { "item": "Puerta vidriera cocina-lavadero", "unidad": "UN", "costo": 450000 },
-    { "item": "0,70 x 2,05 chapa doblada / herrajes.", "unidad": "UN", "costo": 500000 },
-    { "item": "0,90 x 2,05 chapa doblada / herrajes.", "unidad": "UN", "costo": 590000 },
-    { "item": "Puerta chapa standard 0,80 x 2,10 m.", "unidad": "UN", "costo": 240000 }
+    { "item": "Puerta vidriera cocina-lavadero", "unidad": "UN", "costo": 450000, "categoria": "Puertas" },
+    { "item": "0,70 x 2,05 chapa doblada / herrajes.", "unidad": "UN", "costo": 500000, "categoria": "Puertas" },
+    { "item": "0,90 x 2,05 chapa doblada / herrajes.", "unidad": "UN", "costo": 590000, "categoria": "Puertas" },
+    { "item": "Puerta chapa standard 0,80 x 2,10 m.", "unidad": "UN", "costo": 240000, "categoria": "Puertas" }
   ],
   "ventanasChapaDoblada": [
-    { "item": "1 Ventanas y vidrios incluidos", "unidad": "UN", "costo": 575000 },
-    { "item": "1,20 x 1,10 m.", "unidad": "UN", "costo": 625000 },
-    { "item": "1,50 x 1,10 m.", "unidad": "UN", "costo": 700000 },
-    { "item": "BALANCÍN DE HIERRO ÁNGULO", "unidad": "UN", "costo": 164525 }
+    { "item": "1 Ventanas y vidrios incluidos", "unidad": "UN", "costo": 575000, "categoria": "Ventanas Chapa Doblada" },
+    { "item": "1,20 x 1,10 m.", "unidad": "UN", "costo": 625000, "categoria": "Ventanas Chapa Doblada" },
+    { "item": "1,50 x 1,10 m.", "unidad": "UN", "costo": 700000, "categoria": "Ventanas Chapa Doblada" },
+    { "item": "BALANCÍN DE HIERRO ÁNGULO", "unidad": "UN", "costo": 164525, "categoria": "Ventanas Chapa Doblada" }
   ],
   "cielosRasos": [
-    { "item": "A la cal Dosif 1:14", "unidad": "M2", "costo": 53315 },
-    { "item": "A la cal-Estruct.de madera - Dosif 1:14", "unidad": "M2", "costo": 128414 },
-    { "item": "A la cal Estruct.de hierro ángulo-Varilla 8 mm", "unidad": "M2", "costo": 306145 },
-    { "item": "De fibrocemento con chapas Multiso", "unidad": "M2", "costo": 398500 },
-    { "item": "De yeso cartón tipo Durlock", "unidad": "M2", "costo": 414000 },
-    { "item": "De machimbre de lapacho 1\"x2/3\"", "unidad": "M2", "costo": 216000 },
-    { "item": "De varillas de PVC rígido", "unidad": "M2", "costo": 369680 },
-    { "item": "De yeso, planchas 60x60x2,5 cm.", "unidad": "M2", "costo": 123500 },
-    { "item": "Incluye fijación-colocación", "unidad": "M2", "costo": 90000 },
-    { "item": "De poliestireno expandido Placas 1x1 m", "unidad": "M2", "costo": 80000 },
-    { "item": "De yeso con placas 60x60 o similar", "unidad": "M2", "costo": 595000 },
-    { "item": "De Poliestireno expandido Placas 1x1 m", "unidad": "M2", "costo": 195000 },
-    { "item": "De Fibra Mineral Placas 1x1 m", "unidad": "M2", "costo": 120000 }
+    { "item": "A la cal Dosif 1:14", "unidad": "M2", "costo": 53315, "categoria": "Cielos Rasos" },
+    { "item": "A la cal-Estruct.de madera - Dosif 1:14", "unidad": "M2", "costo": 128414, "categoria": "Cielos Rasos" },
+    { "item": "A la cal Estruct.de hierro ángulo-Varilla 8 mm", "unidad": "M2", "costo": 306145, "categoria": "Cielos Rasos" },
+    { "item": "De fibrocemento con chapas Multiso", "unidad": "M2", "costo": 398500, "categoria": "Cielos Rasos" },
+    { "item": "De yeso cartón tipo Durlock", "unidad": "M2", "costo": 414000, "categoria": "Cielos Rasos" },
+    { "item": "De machimbre de lapacho 1\"x2/3\"", "unidad": "M2", "costo": 216000, "categoria": "Cielos Rasos" },
+    { "item": "De varillas de PVC rígido", "unidad": "M2", "costo": 369680, "categoria": "Cielos Rasos" },
+    { "item": "De yeso, planchas 60x60x2,5 cm.", "unidad": "M2", "costo": 123500, "categoria": "Cielos Rasos" },
+    { "item": "Incluye fijación-colocación", "unidad": "M2", "costo": 90000, "categoria": "Cielos Rasos" },
+    { "item": "De poliestireno expandido Placas 1x1 m", "unidad": "M2", "costo": 80000, "categoria": "Cielos Rasos" },
+    { "item": "De yeso con placas 60x60 o similar", "unidad": "M2", "costo": 595000, "categoria": "Cielos Rasos" },
+    { "item": "De Poliestireno expandido Placas 1x1 m", "unidad": "M2", "costo": 195000, "categoria": "Cielos Rasos" },
+    { "item": "De Fibra Mineral Placas 1x1 m", "unidad": "M2", "costo": 120000, "categoria": "Cielos Rasos" }
   ],
   "revoquesMuros": [
-    { "item": "1 A la cal (Sobre las estructuras de interior) 1,5 cm", "unidad": "M2", "costo": 520860 },
-    { "item": "2 A la cal (Sobre las estructuras de interior) 1,5 cm", "unidad": "M2", "costo": 695477 }
+    { "item": "1 A la cal (Sobre las estructuras de interior) 1,5 cm", "unidad": "M2", "costo": 520860, "categoria": "Revoques de Muro" },
+    { "item": "2 A la cal (Sobre las estructuras de interior) 1,5 cm", "unidad": "M2", "costo": 695477, "categoria": "Revoques de Muro" }
   ],
   "pisos": [
-    { "item": "Alfombra múltiple 55,5 mm", "unidad": "M2", "costo": 82750 },
-    { "item": "Alfombra 6 mm", "unidad": "M2", "costo": 90000 },
-    { "item": "Alfombra de goma sintético americana 12 mm", "unidad": "M2", "costo": 110000 },
-    { "item": "Alisado cementicio (nivelado de piso de parquet 22,5 cm Dosif 1:5)", "unidad": "M2", "costo": 769793 },
-    { "item": "Baldosas de homigón sin vallar", "unidad": "M2", "costo": 561854 },
-    { "item": "Cerámica - Imitación 40x40x1/1,5 cm", "unidad": "M2", "costo": 331894 },
-    { "item": "Granítico (mosaicos) - base cemento blanco", "unidad": "M2", "costo": 121892 },
-    { "item": "Graníticos (mosaicos) - base cemento gris", "unidad": "M2", "costo": 132392 },
-    { "item": "Incluye el pulido final", "unidad": "M2", "costo": 67092 },
-    { "item": "Parqué machimbre de lapacho 1\"x1/2\"", "unidad": "M2", "costo": 396000 },
-    { "item": "Cerámicas - base cemento gris", "unidad": "M2", "costo": 132392 },
-    { "item": "Graníticos 20x20 cm", "unidad": "M2", "costo": 345718 }
+    { "item": "Alfombra múltiple 55,5 mm", "unidad": "M2", "costo": 82750, "categoria": "Pisos" },
+    { "item": "Alfombra 6 mm", "unidad": "M2", "costo": 90000, "categoria": "Pisos" },
+    { "item": "Alfombra de goma sintético americana 12 mm", "unidad": "M2", "costo": 110000, "categoria": "Pisos" },
+    { "item": "Alisado cementicio (nivelado de piso de parquet 22,5 cm Dosif 1:5)", "unidad": "M2", "costo": 769793, "categoria": "Pisos" },
+    { "item": "Baldosas de homigón sin vallar", "unidad": "M2", "costo": 561854, "categoria": "Pisos" },
+    { "item": "Cerámica - Imitación 40x40x1/1,5 cm", "unidad": "M2", "costo": 331894, "categoria": "Pisos" },
+    { "item": "Granítico (mosaicos) - base cemento blanco", "unidad": "M2", "costo": 121892, "categoria": "Pisos" },
+    { "item": "Graníticos (mosaicos) - base cemento gris", "unidad": "M2", "costo": 132392, "categoria": "Pisos" },
+    { "item": "Incluye el pulido final", "unidad": "M2", "costo": 67092, "categoria": "Pisos" },
+    { "item": "Parqué machimbre de lapacho 1\"x1/2\"", "unidad": "M2", "costo": 396000, "categoria": "Pisos" },
+    { "item": "Cerámicas - base cemento gris", "unidad": "M2", "costo": 132392, "categoria": "Pisos" },
+    { "item": "Graníticos 20x20 cm", "unidad": "M2", "costo": 345718, "categoria": "Pisos" }
   ],
   "zocalos": [
-    { "item": "Alfombra tipo Sierra", "unidad": "ML", "costo": 7156 },
-    { "item": "Cerámicas - base cemento gris (20x20)", "unidad": "ML", "costo": 5200 },
-    { "item": "Graníticos - base cemento blanco", "unidad": "ML", "costo": 7200 },
-    { "item": "Graníticos - base cemento gris", "unidad": "ML", "costo": 7186 },
-    { "item": "Graníticos 20x20 cm", "unidad": "ML", "costo": 13458 },
-    { "item": "Layota esmaltada 30 x 30", "unidad": "M2", "costo": 453478 }
+    { "item": "Alfombra tipo Sierra", "unidad": "ML", "costo": 7156, "categoria": "Zócalos" },
+    { "item": "Cerámicas - base cemento gris (20x20)", "unidad": "ML", "costo": 5200, "categoria": "Zócalos" },
+    { "item": "Graníticos - base cemento blanco", "unidad": "ML", "costo": 7200, "categoria": "Zócalos" },
+    { "item": "Graníticos - base cemento gris", "unidad": "ML", "costo": 7186, "categoria": "Zócalos" },
+    { "item": "Graníticos 20x20 cm", "unidad": "ML", "costo": 13458, "categoria": "Zócalos" },
+    { "item": "Layota esmaltada 30 x 30", "unidad": "M2", "costo": 453478, "categoria": "Zócalos" }
   ],
   "revestimientos": [
-    { "item": "Azulejo Nacional", "unidad": "M2", "costo": 178025 },
-    { "item": "Azulejo Nacional (Vidrios incluidos)", "unidad": "M2", "costo": 190000 },
-    { "item": "Azulejo Brasilero", "unidad": "M2", "costo": 216000 },
-    { "item": "Azulejo Portobelo", "unidad": "M2", "costo": 325000 },
-    { "item": "Adoquines de Piedra Laja (m²)", "unidad": "M2", "costo": 410000 }
+    { "item": "Azulejo Nacional", "unidad": "M2", "costo": 178025, "categoria": "Revestimientos" },
+    { "item": "Azulejo Nacional (Vidrios incluidos)", "unidad": "M2", "costo": 190000, "categoria": "Revestimientos" },
+    { "item": "Azulejo Brasilero", "unidad": "M2", "costo": 216000, "categoria": "Revestimientos" },
+    { "item": "Azulejo Portobelo", "unidad": "M2", "costo": 325000, "categoria": "Revestimientos" },
+    { "item": "Adoquines de Piedra Laja (m²)", "unidad": "M2", "costo": 410000, "categoria": "Revestimientos" }
   ],
   "pinturaEmpapelado": [
-    { "item": "Empapelado (Lavable, 0,50 x 10 m, incluye costura)", "unidad": "M2", "costo": 51700 },
-    { "item": "A la cal (Interior, incluye mano de obra)", "unidad": "M2", "costo": 16000 },
-    { "item": "A la cal (Interior Nacional)", "unidad": "M2", "costo": 23000 }
+    { "item": "Empapelado (Lavable, 0,50 x 10 m, incluye costura)", "unidad": "M2", "costo": 51700, "categoria": "Pintura y Empapelado" },
+    { "item": "A la cal (Interior, incluye mano de obra)", "unidad": "M2", "costo": 16000, "categoria": "Pintura y Empapelado" },
+    { "item": "A la cal (Interior Nacional)", "unidad": "M2", "costo": 23000, "categoria": "Pintura y Empapelado" }
   ]
 }

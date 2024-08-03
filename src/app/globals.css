@@ -31,3 +31,22 @@ body {
     text-wrap: balance;
   }
 }
+@keyframes ping-once {
+  0% {
+    transform: scale(1);
+    background-color: #f87171;
+  }
+  50% {
+    transform: scale(1.2);
+    background-color: #ef4444;
+  }
+  100% {
+    transform: scale(1);
+    background-color: #f87171;
+  }
+}
+
+.animate-ping-once {
+  animation: ping-once 1s ease-in-out;
+}
+

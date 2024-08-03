@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TableData } from '../../types';
 import { FaTimes, FaTrash, FaCalculator } from 'react-icons/fa';
 
@@ -8,10 +8,11 @@ interface ModalProps {
   onRemoveItem: (index: number) => void;
 }
 
-const Modal: React.FC<ModalProps> = ({ selectedItems, onRemoveItem  }) => {
+const Modal: React.FC<ModalProps> = ({ selectedItems, onRemoveItem }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
-  
+  const [isAnimated, setIsAnimated] = useState(false);
+
   const totalCost = selectedItems.reduce((sum, item) => sum + item.costo, 0);
 
   const toggleVisibility = () => {
@@ -25,14 +26,22 @@ const Modal: React.FC<ModalProps> = ({ selectedItems, onRemoveItem  }) => {
     setIsMinimized(!isMinimized);
   };
 
+  useEffect(() => {
+    if (selectedItems.length > 0) {
+      setIsAnimated(true);
+      const timer = setTimeout(() => setIsAnimated(false), 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [selectedItems]);
+
   return (
     <>
       {(!isVisible || isMinimized) && (
         <button
           onClick={toggleVisibility}
-          className="fixed bottom-2 right-2 bg-red-600 hover:bg-red-700 text-white rounded-full p-3 shadow-lg"
+          className={`fixed bottom-2 right-2 bg-red-600 hover:bg-red-700 text-white rounded-full p-3 shadow-lg transition-transform duration-300 ${isAnimated ? 'animate-ping-once' : ''}`}
         >
-          <FaCalculator  />
+          <FaCalculator />
         </button>
       )}
       <div className={`fixed bottom-2 right-2 bg-white dark:bg-gray-800 shadow-lg rounded-lg p-3 transition-transform duration-300 ${isVisible ? 'scale-100' : 'scale-0'} ${isMinimized ? 'w-36' : 'w-auto'}`}>

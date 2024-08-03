@@ -18,6 +18,7 @@ export interface Referencias {
   }
   
   export interface TableData {
+    categoria: string;
     item: string;
     unidad: string;
     costo: number;

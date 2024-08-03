@@ -8,16 +8,18 @@ interface TableProps {
   data: TableData[];
   onSelectItem: (item: TableData) => void;
   allExpanded: boolean;
+  toggleTableExpand: (title: string) => void;
 }
 
-const Table: React.FC<TableProps> = ({ title, data = [], onSelectItem, allExpanded }) => {
+const Table: React.FC<TableProps> = ({ title, data = [], onSelectItem, allExpanded, toggleTableExpand  }) => {
   const [isExpanded, setIsExpanded] = useState(true);
 
   useEffect(() => {
     setIsExpanded(allExpanded);
   }, [allExpanded]);
 
-  const toggleExpand = () => {
+  const handleToggleExpand = () => {
+    toggleTableExpand(title);
     setIsExpanded(!isExpanded);
   };
 
@@ -25,7 +27,7 @@ const Table: React.FC<TableProps> = ({ title, data = [], onSelectItem, allExpand
     <div className="overflow-x-auto mb-4">
       <div 
         className="text-sm flex items-center justify-between font-semibold  bg-gray-200 dark:bg-gray-700 dark:text-white text-black p-2 cursor-pointer rounded-ee-lg rounded-ss-lg"
-        onClick={toggleExpand}
+        onClick={handleToggleExpand}
       >
         <h2>{title}</h2>
         <span className="ml-2 bg-red-600 dark:bg-slate-400 p-0.5 border-black border text-white">
