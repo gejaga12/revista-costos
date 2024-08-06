@@ -28,7 +28,7 @@ const CrearPresupuesto: React.FC = () => {
     };
 
     const handleItemClick = (item: TableData) => {
-        if (item.unidad === 'M2' || item.unidad === 'ML') {
+        if (item.unidad === 'M2' || item.unidad === 'ML', item.unidad === 'UN') {
             setItemToAdd(item);
             setShowQuantityModal(true);
         } else {
