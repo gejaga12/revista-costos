@@ -7,15 +7,33 @@ import { FaCheckCircle, FaChevronDown, FaChevronUp, FaClock, FaFileAlt, FaSave, 
 
 const CrearPresupuesto: React.FC = () => {
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-    const [selectedItems, setSelectedItems] = useState<TableData[]>([]);
+    const [selectedItems, setSelectedItems] = useState<(TableData & { cantidad: number })[]>([]);
     const [isItemsExpanded, setIsItemsExpanded] = useState<boolean>(true);
+    const [quantity, setQuantity] = useState<number>(1);
+    const [showQuantityModal, setShowQuantityModal] = useState<boolean>(false);
+    const [itemToAdd, setItemToAdd] = useState<TableData | null>(null);
 
     const handleCategoryClick = (category: string) => {
         setSelectedCategory(category);
     };
 
     const handleItemClick = (item: TableData) => {
-        setSelectedItems([...selectedItems, item]);
+        if (item.unidad === 'M2' || item.unidad === 'ML') {
+            setItemToAdd(item);
+            setShowQuantityModal(true);
+        } else {
+            setSelectedItems([...selectedItems, { ...item, cantidad: 1 }]);
+        }
+    };
+
+    const handleAddItemWithQuantity = () => {
+        if (itemToAdd) {
+            const newItem = { ...itemToAdd, costo: itemToAdd.costo * quantity, cantidad: quantity };
+            setSelectedItems([...selectedItems, newItem]);
+            setShowQuantityModal(false);
+            setItemToAdd(null);
+            setQuantity(1);
+        }
     };
 
     const handleRemoveItem = (index: number) => {
@@ -146,7 +164,7 @@ const CrearPresupuesto: React.FC = () => {
                             <button
                                 type="button"
                                 onClick={toggleItemsExpand}
-                                className="text-black dark:text-white bg-gray-300 p-2 rounded-lg flex items-center"
+                                className="text-black dark:text-white bg-gray-300 dark:bg-gray-400 p-2 rounded-lg flex items-center"
                             >
                                 {isItemsExpanded ? <FaChevronUp /> : <FaChevronDown />}
                             </button>
@@ -161,6 +179,8 @@ const CrearPresupuesto: React.FC = () => {
                                             <div className="flex flex-col">
                                                 <span className="font-medium text-sm text-black dark:text-white">{item.item}</span>
                                                 <span className="text-xs text-gray-500 dark:text-gray-400">${item.costo}</span>
+                                                <span className="text-xs text-gray-500 dark:text-gray-400">Unidad: {item.unidad}</span>
+                                                <span className="text-xs text-gray-500 dark:text-gray-400">Cantidad de {item.unidad}: {item.cantidad}</span>
                                             </div>
                                             <button
                                                 onClick={() => handleRemoveItem(index)}
@@ -179,10 +199,38 @@ const CrearPresupuesto: React.FC = () => {
                         <FaFileAlt className="mr-2" />
                         Crear Presupuesto
                     </button>
-
                 </form>
                 {renderItems()}
             </div>
+
+            {showQuantityModal && (
+                <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50">
+                    <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                        <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">Ingrese la cantidad de {itemToAdd?.unidad}</h3>
+                        <input
+                            type="number"
+                            min="1"
+                            value={quantity}
+                            onChange={(e) => setQuantity(Number(e.target.value))}
+                            className="p-2 rounded border w-full text-black mb-4"
+                        />
+                        <div className="flex justify-end">
+                            <button
+                                onClick={() => setShowQuantityModal(false)}
+                                className="bg-gray-500 hover:bg-gray-700 text-white py-2 px-4 rounded mr-2"
+                            >
+                                Cancelar
+                            </button>
+                            <button
+                                onClick={handleAddItemWithQuantity}
+                                className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded"
+                            >
+                                Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

@@ -18,6 +18,7 @@ export interface Referencias {
   }
   
   export interface TableData {
+    cantidad: number;
     categoria: string;
     item: string;
     unidad: string;
