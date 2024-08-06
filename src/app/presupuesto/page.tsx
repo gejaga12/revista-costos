@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import data from '../datos/data.json';
 import { TableData } from '../../types';
 import { FaCheckCircle, FaChevronDown, FaChevronUp, FaClock, FaFileAlt, FaSave, FaTrash } from 'react-icons/fa';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 const CrearPresupuesto: React.FC = () => {
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -14,6 +16,12 @@ const CrearPresupuesto: React.FC = () => {
     const [quantity, setQuantity] = useState<number>(1);
     const [showQuantityModal, setShowQuantityModal] = useState<boolean>(false);
     const [itemToAdd, setItemToAdd] = useState<TableData | null>(null);
+    const [empresa, setEmpresa] = useState<string>('');
+    const [rucEmpresa, setRucEmpresa] = useState<string>('');
+    const [direccionEmpresa, setDireccionEmpresa] = useState<string>('');
+    const [cliente, setCliente] = useState<string>('');
+    const [rucCliente, setRucCliente] = useState<string>('');
+    const [direccionCliente, setDireccionCliente] = useState<string>('');
 
     const handleCategoryClick = (category: string) => {
         setSelectedCategory(category);
@@ -54,6 +62,79 @@ const CrearPresupuesto: React.FC = () => {
 
     const toggleClienteExpand = () => {
         setIsClienteExpanded(!isClienteExpanded);
+    };
+
+    const generatePDF = () => {
+        const doc = new jsPDF();
+
+        doc.setFontSize(18);
+        doc.text('Presupuesto', 14, 22);
+
+        doc.setFontSize(10);
+        doc.text(`Empresa: ${empresa}`, 150, 30, { align: 'right' });
+        doc.text(`RUC: ${rucEmpresa}`, 150, 36, { align: 'right' });
+        doc.text(`Dirección: ${direccionEmpresa}`, 150, 42, { align: 'right' });
+
+        doc.text(`Cliente: ${cliente}`, 14, 30);
+        doc.text(`RUC: ${rucCliente}`, 14, 36);
+        doc.text(`Dirección: ${direccionCliente}`, 14, 42);
+
+        const tableColumn = ["Item", "Unidad", "Cantidad", "Costo", "Total"];
+        const tableRows: any[] = [];
+
+        const categorizedItems: any = selectedItems.reduce((acc: any, item: any) => {
+            if (!acc[item.categoria]) {
+                acc[item.categoria] = [];
+            }
+            acc[item.categoria].push(item);
+            return acc;
+        }, {});
+
+        Object.keys(categorizedItems).forEach(categoria => {
+            tableRows.push([{ content: categoria, colSpan: 5, styles: { halign: 'center', fillColor: [211, 211, 211] } }]);
+            categorizedItems[categoria].forEach((item: any) => {
+                const itemData = [
+                    item.item,
+                    item.unidad,
+                    item.cantidad,
+                    item.costo.toFixed(2),
+                    (item.costo * item.cantidad).toFixed(2)
+                ];
+                tableRows.push(itemData);
+            });
+
+            const totalCategoria = categorizedItems[categoria].reduce((sum: any, item: any) => sum + (item.costo * item.cantidad), 0);
+            tableRows.push([
+                { content: 'Total de categoría:', colSpan: 4, styles: { halign: 'right' } },
+                { content: totalCategoria.toFixed(2), styles: { halign: 'right' } }
+            ]);
+        });
+
+        const total = selectedItems.reduce((acc, item) => acc + (item.costo * item.cantidad), 0);
+        tableRows.push([
+            { content: 'TOTAL GENERAL:', colSpan: 4, styles: { halign: 'right' } },
+            { content: total.toFixed(2), styles: { halign: 'right' } }
+        ]);
+
+        (doc as any).autoTable({
+            head: [tableColumn],
+            body: tableRows,
+            startY: 50,
+            theme: 'striped',
+            styles: {
+                lineColor: [44, 62, 80],
+                lineWidth: 0.75
+            },
+            columnStyles: {
+                0: { cellWidth: 60 },
+                1: { cellWidth: 20 },
+                2: { cellWidth: 20 },
+                3: { cellWidth: 30 },
+                4: { cellWidth: 30 }
+            }
+        });
+
+        doc.save('presupuesto.pdf');
     };
 
     const categories = [
@@ -144,7 +225,7 @@ const CrearPresupuesto: React.FC = () => {
                 </ul>
             </div>
             <div className="w-3/4 p-4">
-                <div className="mb-4 flex justify-start items-center">
+                <div className="mb-1 flex justify-start items-center">
                     <h2 className="text-lg font-semibold text-gray-900 dark:text-white mr-2">Cotización</h2>
                     <button
                         type="button"
@@ -157,35 +238,41 @@ const CrearPresupuesto: React.FC = () => {
                 {isCotizacionExpanded && (
                     <form onSubmit={(e) => e.preventDefault()}>
                         <div className="mb-1">
-                            <label className="block text-gray-700 dark:text-gray-300 mb-1" htmlFor="nombre">
+                            <label className="block text-gray-700 dark:text-gray-300 mb-1" htmlFor="nombreEmpresa">
                                 Nombre de Empresa
                             </label>
                             <input
                                 type="text"
-                                id="nombre"
-                                name="nombre"
+                                id="nombreEmpresa"
+                                name="nombreEmpresa"
+                                value={empresa}
+                                onChange={(e) => setEmpresa(e.target.value)}
                                 className="p-2 rounded border w-full text-black"
                             />
                         </div>
                         <div className="mb-1">
-                            <label className="block text-gray-700 dark:text-gray-300 mb-1" htmlFor="descripcion">
+                            <label className="block text-gray-700 dark:text-gray-300 mb-1" htmlFor="rucEmpresa">
                                 Ruc
                             </label>
                             <input
                                 type="text"
-                                id="descripcion"
-                                name="descripcion"
+                                id="rucEmpresa"
+                                name="rucEmpresa"
+                                value={rucEmpresa}
+                                onChange={(e) => setRucEmpresa(e.target.value)}
                                 className="p-2 rounded border w-full text-black"
                             />
                         </div>
                         <div className="mb-1">
-                            <label className="block text-gray-700 dark:text-gray-300 mb-1" htmlFor="descripcion">
+                            <label className="block text-gray-700 dark:text-gray-300 mb-1" htmlFor="direccionEmpresa">
                                 Dirección
                             </label>
                             <input
                                 type="text"
-                                id="descripcion"
-                                name="descripcion"
+                                id="direccionEmpresa"
+                                name="direccionEmpresa"
+                                value={direccionEmpresa}
+                                onChange={(e) => setDireccionEmpresa(e.target.value)}
                                 className="p-2 rounded border w-full text-black"
                             />
                         </div>
@@ -204,35 +291,41 @@ const CrearPresupuesto: React.FC = () => {
                 {isClienteExpanded && (
                     <form onSubmit={(e) => e.preventDefault()}>
                         <div className="mb-1">
-                            <label className="block text-gray-700 dark:text-gray-300 mb-1" htmlFor="clienteNombre">
-                                Nombre de Empresa
+                            <label className="block text-gray-700 dark:text-gray-300 mb-1" htmlFor="nombreCliente">
+                                Nombre del Cliente
                             </label>
                             <input
                                 type="text"
-                                id="clienteNombre"
-                                name="clienteNombre"
+                                id="nombreCliente"
+                                name="nombreCliente"
+                                value={cliente}
+                                onChange={(e) => setCliente(e.target.value)}
                                 className="p-2 rounded border w-full text-black"
                             />
                         </div>
                         <div className="mb-1">
-                            <label className="block text-gray-700 dark:text-gray-300 mb-1" htmlFor="clienteRuc">
+                            <label className="block text-gray-700 dark:text-gray-300 mb-1" htmlFor="rucCliente">
                                 Ruc
                             </label>
                             <input
                                 type="text"
-                                id="clienteRuc"
-                                name="clienteRuc"
+                                id="rucCliente"
+                                name="rucCliente"
+                                value={rucCliente}
+                                onChange={(e) => setRucCliente(e.target.value)}
                                 className="p-2 rounded border w-full text-black"
                             />
                         </div>
                         <div className="mb-1">
-                            <label className="block text-gray-700 dark:text-gray-300 mb-1" htmlFor="clienteDireccion">
+                            <label className="block text-gray-700 dark:text-gray-300 mb-1" htmlFor="direccionCliente">
                                 Dirección
                             </label>
                             <input
                                 type="text"
-                                id="clienteDireccion"
-                                name="clienteDireccion"
+                                id="direccionCliente"
+                                name="direccionCliente"
+                                value={direccionCliente}
+                                onChange={(e) => setDireccionCliente(e.target.value)}
                                 className="p-2 rounded border w-full text-black"
                             />
                         </div>
@@ -275,7 +368,7 @@ const CrearPresupuesto: React.FC = () => {
                     )}
                 </div>
 
-                <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded flex items-center">
+                <button onClick={generatePDF} className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded flex items-center">
                     <FaFileAlt className="mr-2" />
                     Crear Presupuesto
                 </button>
