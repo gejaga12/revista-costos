@@ -158,14 +158,16 @@ const Home: React.FC = () => {
   return (
     <div className="bg-gray-100 dark:bg-gray-900 min-h-screen">    
       <div className="container mx-auto p-4">
-        <div className="flex justify-between mb-4">
-          <ReferencesDashboard />
-          <button
+      <div className='flex justify-end items-center'>
+      <button
             onClick={() => router.push('/presupuesto')}
-            className="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded"
+            className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded"
           >
             Crear Presupuesto
           </button>
+          </div>
+        <div className="flex justify-center mb-4">
+          <ReferencesDashboard />          
         </div>
         <div className="flex flex-col md:flex-row justify-evenly items-center mb-4 text-xs space-y-4 md:space-y-0 md:space-x-4">
           <button
