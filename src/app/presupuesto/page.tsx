@@ -3,11 +3,12 @@
 import React, { useState } from 'react';
 import data from '../datos/data.json';
 import { TableData } from '../../types';
-import { FaCheckCircle, FaClock, FaTrash } from 'react-icons/fa';
+import { FaCheckCircle, FaChevronDown, FaChevronUp, FaClock, FaFileAlt, FaSave, FaTrash } from 'react-icons/fa';
 
 const CrearPresupuesto: React.FC = () => {
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
     const [selectedItems, setSelectedItems] = useState<TableData[]>([]);
+    const [isItemsExpanded, setIsItemsExpanded] = useState<boolean>(true);
 
     const handleCategoryClick = (category: string) => {
         setSelectedCategory(category);
@@ -21,6 +22,10 @@ const CrearPresupuesto: React.FC = () => {
         const newItems = [...selectedItems];
         newItems.splice(index, 1);
         setSelectedItems(newItems);
+    };
+
+    const toggleItemsExpand = () => {
+        setIsItemsExpanded(!isItemsExpanded);
     };
 
     const categories = [
@@ -136,32 +141,45 @@ const CrearPresupuesto: React.FC = () => {
                         />
                     </div>
                     <div className="mb-4">
-                        <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Items Seleccionados</h3>
-                        {selectedItems.length === 0 ? (
-                            <p className="text-gray-500 dark:text-gray-400">No hay items seleccionados.</p>
-                        ) : (
-                            <ul>
-                                {selectedItems.map((item, index) => (
-                                    <li key={index} className="flex justify-between items-center p-2 bg-gray-200 dark:bg-gray-700 mb-2 rounded">
-                                        <div className="flex flex-col">
-                                            <span className="font-medium text-black dark:text-white">{item.item}</span>
-                                            <span className="text-sm text-gray-500 dark:text-gray-400">${item.costo}</span>
-                                        </div>
-                                        <button
-                                            onClick={() => handleRemoveItem(index)}
-                                            className="text-red-500 hover:text-red-700 mr-2 bg-gray-300 p-2 rounded-lg"
-                                        >
-                                            <FaTrash />
-                                            
-                                        </button>
-                                    </li>
-                                ))}
-                            </ul>
+                        <div className="flex justify-start items-center mb-2">
+                            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mr-2">Items Seleccionados</h3>
+                            <button
+                                type="button"
+                                onClick={toggleItemsExpand}
+                                className="text-black dark:text-white bg-gray-300 p-2 rounded-lg flex items-center"
+                            >
+                                {isItemsExpanded ? <FaChevronUp /> : <FaChevronDown />}
+                            </button>
+                        </div>
+                        {isItemsExpanded && (
+                            selectedItems.length === 0 ? (
+                                <p className="text-gray-500 dark:text-gray-400">No hay items seleccionados.</p>
+                            ) : (
+                                <ul>
+                                    {selectedItems.map((item, index) => (
+                                        <li key={index} className="flex justify-between items-center p-2 bg-gray-200 dark:bg-gray-700 mb-2 rounded">
+                                            <div className="flex flex-col">
+                                                <span className="font-medium text-sm text-black dark:text-white">{item.item}</span>
+                                                <span className="text-xs text-gray-500 dark:text-gray-400">${item.costo}</span>
+                                            </div>
+                                            <button
+                                                onClick={() => handleRemoveItem(index)}
+                                                className="text-red-500 hover:text-red-700 mr-2 bg-gray-300 p-2 rounded-lg"
+                                            >
+                                                <FaTrash />
+                                            </button>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )
                         )}
                     </div>
-                    <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded">
-                        Crear
+
+                    <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded flex items-center">
+                        <FaFileAlt className="mr-2" />
+                        Crear Presupuesto
                     </button>
+
                 </form>
                 {renderItems()}
             </div>
