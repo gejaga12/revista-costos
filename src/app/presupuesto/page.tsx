@@ -9,6 +9,8 @@ const CrearPresupuesto: React.FC = () => {
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
     const [selectedItems, setSelectedItems] = useState<(TableData & { cantidad: number })[]>([]);
     const [isItemsExpanded, setIsItemsExpanded] = useState<boolean>(true);
+    const [isCotizacionExpanded, setIsCotizacionExpanded] = useState<boolean>(true);
+    const [isClienteExpanded, setIsClienteExpanded] = useState<boolean>(true);
     const [quantity, setQuantity] = useState<number>(1);
     const [showQuantityModal, setShowQuantityModal] = useState<boolean>(false);
     const [itemToAdd, setItemToAdd] = useState<TableData | null>(null);
@@ -44,6 +46,14 @@ const CrearPresupuesto: React.FC = () => {
 
     const toggleItemsExpand = () => {
         setIsItemsExpanded(!isItemsExpanded);
+    };
+
+    const toggleCotizacionExpand = () => {
+        setIsCotizacionExpanded(!isCotizacionExpanded);
+    };
+
+    const toggleClienteExpand = () => {
+        setIsClienteExpanded(!isClienteExpanded);
     };
 
     const categories = [
@@ -134,72 +144,141 @@ const CrearPresupuesto: React.FC = () => {
                 </ul>
             </div>
             <div className="w-3/4 p-4">
-                <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">Crear Presupuesto</h2>
-                <form onSubmit={(e) => e.preventDefault()}>
-                    <div className="mb-4">
-                        <label className="block text-gray-700 dark:text-gray-300 mb-2" htmlFor="nombre">
-                            Nombre
-                        </label>
-                        <input
-                            type="text"
-                            id="nombre"
-                            name="nombre"
-                            className="p-2 rounded border w-full text-black"
-                        />
-                    </div>
-                    <div className="mb-4">
-                        <label className="block text-gray-700 dark:text-gray-300 mb-2" htmlFor="descripcion">
-                            Descripción
-                        </label>
-                        <input
-                            type="text"
-                            id="descripcion"
-                            name="descripcion"
-                            className="p-2 rounded border w-full text-black"
-                        />
-                    </div>
-                    <div className="mb-4">
-                        <div className="flex justify-start items-center mb-2">
-                            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mr-2">Items Seleccionados</h3>
-                            <button
-                                type="button"
-                                onClick={toggleItemsExpand}
-                                className="text-black dark:text-white bg-gray-300 dark:bg-gray-400 p-2 rounded-lg flex items-center"
-                            >
-                                {isItemsExpanded ? <FaChevronUp /> : <FaChevronDown />}
-                            </button>
-                        </div>
-                        {isItemsExpanded && (
-                            selectedItems.length === 0 ? (
-                                <p className="text-gray-500 dark:text-gray-400">No hay items seleccionados.</p>
-                            ) : (
-                                <ul>
-                                    {selectedItems.map((item, index) => (
-                                        <li key={index} className="flex justify-between items-center p-2 bg-gray-200 dark:bg-gray-700 mb-2 rounded">
-                                            <div className="flex flex-col">
-                                                <span className="font-medium text-sm text-black dark:text-white">{item.item}</span>
-                                                <span className="text-xs text-gray-500 dark:text-gray-400">${item.costo}</span>
-                                                <span className="text-xs text-gray-500 dark:text-gray-400">Unidad: {item.unidad}</span>
-                                                <span className="text-xs text-gray-500 dark:text-gray-400">Cantidad de {item.unidad}: {item.cantidad}</span>
-                                            </div>
-                                            <button
-                                                onClick={() => handleRemoveItem(index)}
-                                                className="text-red-500 hover:text-red-700 mr-2 bg-gray-300 p-2 rounded-lg"
-                                            >
-                                                <FaTrash />
-                                            </button>
-                                        </li>
-                                    ))}
-                                </ul>
-                            )
-                        )}
-                    </div>
-
-                    <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded flex items-center">
-                        <FaFileAlt className="mr-2" />
-                        Crear Presupuesto
+                <div className="mb-4 flex justify-start items-center">
+                    <h2 className="text-lg font-semibold text-gray-900 dark:text-white mr-2">Cotización</h2>
+                    <button
+                        type="button"
+                        onClick={toggleCotizacionExpand}
+                        className="text-black dark:text-white bg-gray-300 dark:bg-gray-400 p-2 rounded-lg flex items-center"
+                    >
+                        {isCotizacionExpanded ? <FaChevronUp /> : <FaChevronDown />}
                     </button>
-                </form>
+                </div>
+                {isCotizacionExpanded && (
+                    <form onSubmit={(e) => e.preventDefault()}>
+                        <div className="mb-1">
+                            <label className="block text-gray-700 dark:text-gray-300 mb-1" htmlFor="nombre">
+                                Nombre de Empresa
+                            </label>
+                            <input
+                                type="text"
+                                id="nombre"
+                                name="nombre"
+                                className="p-2 rounded border w-full text-black"
+                            />
+                        </div>
+                        <div className="mb-1">
+                            <label className="block text-gray-700 dark:text-gray-300 mb-1" htmlFor="descripcion">
+                                Ruc
+                            </label>
+                            <input
+                                type="text"
+                                id="descripcion"
+                                name="descripcion"
+                                className="p-2 rounded border w-full text-black"
+                            />
+                        </div>
+                        <div className="mb-1">
+                            <label className="block text-gray-700 dark:text-gray-300 mb-1" htmlFor="descripcion">
+                                Dirección
+                            </label>
+                            <input
+                                type="text"
+                                id="descripcion"
+                                name="descripcion"
+                                className="p-2 rounded border w-full text-black"
+                            />
+                        </div>
+                    </form>
+                )}
+                <div className="mb-4 flex justify-start items-center">
+                    <h2 className="text-lg font-semibold text-gray-900 dark:text-white mr-2">Cliente</h2>
+                    <button
+                        type="button"
+                        onClick={toggleClienteExpand}
+                        className="text-black dark:text-white bg-gray-300 dark:bg-gray-400 p-2 rounded-lg flex items-center"
+                    >
+                        {isClienteExpanded ? <FaChevronUp /> : <FaChevronDown />}
+                    </button>
+                </div>
+                {isClienteExpanded && (
+                    <form onSubmit={(e) => e.preventDefault()}>
+                        <div className="mb-1">
+                            <label className="block text-gray-700 dark:text-gray-300 mb-1" htmlFor="clienteNombre">
+                                Nombre de Empresa
+                            </label>
+                            <input
+                                type="text"
+                                id="clienteNombre"
+                                name="clienteNombre"
+                                className="p-2 rounded border w-full text-black"
+                            />
+                        </div>
+                        <div className="mb-1">
+                            <label className="block text-gray-700 dark:text-gray-300 mb-1" htmlFor="clienteRuc">
+                                Ruc
+                            </label>
+                            <input
+                                type="text"
+                                id="clienteRuc"
+                                name="clienteRuc"
+                                className="p-2 rounded border w-full text-black"
+                            />
+                        </div>
+                        <div className="mb-1">
+                            <label className="block text-gray-700 dark:text-gray-300 mb-1" htmlFor="clienteDireccion">
+                                Dirección
+                            </label>
+                            <input
+                                type="text"
+                                id="clienteDireccion"
+                                name="clienteDireccion"
+                                className="p-2 rounded border w-full text-black"
+                            />
+                        </div>
+                    </form>
+                )}
+                <div className="mb-4 mt-4">
+                    <div className="flex justify-start items-center mb-2">
+                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mr-2">Items Seleccionados</h3>
+                        <button
+                            type="button"
+                            onClick={toggleItemsExpand}
+                            className="text-black dark:text-white bg-gray-300 dark:bg-gray-400 p-2 rounded-lg flex items-center"
+                        >
+                            {isItemsExpanded ? <FaChevronUp /> : <FaChevronDown />}
+                        </button>
+                    </div>
+                    {isItemsExpanded && (
+                        selectedItems.length === 0 ? (
+                            <p className="text-gray-500 dark:text-gray-400">No hay items seleccionados.</p>
+                        ) : (
+                            <ul>
+                                {selectedItems.map((item, index) => (
+                                    <li key={index} className="flex justify-between items-center p-2 bg-gray-200 dark:bg-gray-700 mb-2 rounded">
+                                        <div className="flex flex-col">
+                                            <span className="font-medium text-sm text-black dark:text-white">{item.item}</span>
+                                            <span className="text-xs text-gray-500 dark:text-gray-400">${item.costo}</span>
+                                            <span className="text-xs text-gray-500 dark:text-gray-400">Unidad: {item.unidad}</span>
+                                            <span className="text-xs text-gray-500 dark:text-gray-400">Cantidad de {item.unidad}: {item.cantidad}</span>
+                                        </div>
+                                        <button
+                                            onClick={() => handleRemoveItem(index)}
+                                            className="text-red-500 hover:text-red-700 mr-2 bg-gray-300 p-2 rounded-lg"
+                                        >
+                                            <FaTrash />
+                                        </button>
+                                    </li>
+                                ))}
+                            </ul>
+                        )
+                    )}
+                </div>
+
+                <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded flex items-center">
+                    <FaFileAlt className="mr-2" />
+                    Crear Presupuesto
+                </button>
                 {renderItems()}
             </div>
 
