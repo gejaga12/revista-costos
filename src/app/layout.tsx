@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from './components/Navbar'; // Asegúrate de importar el Navbar
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <link rel="icon" href="/favicon.ico" />
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Navbar /> {/* Incluir el Navbar aquí */}
+        {children}
+      </body>
     </html>
   );
 }
