@@ -66,22 +66,31 @@ const CrearPresupuesto: React.FC = () => {
 
     const generatePDF = () => {
         const doc = new jsPDF();
-
+    
+        // Agregar logo
+        const logoURL = '/logo.webp';
+        doc.addImage(logoURL, 'WEBP', 10, 10, 50, 15);
+    
+        // Título
         doc.setFontSize(18);
-        doc.text('Presupuesto', 14, 22);
-
+        doc.text('PRESUPUESTO DE CONSTRUCCIÓN', 70, 22);
+    
+        // Datos de la empresa y el cliente
         doc.setFontSize(10);
-        doc.text(`Empresa: ${empresa}`, 150, 30, { align: 'right' });
-        doc.text(`RUC: ${rucEmpresa}`, 150, 36, { align: 'right' });
-        doc.text(`Dirección: ${direccionEmpresa}`, 150, 42, { align: 'right' });
-
-        doc.text(`Cliente: ${cliente}`, 14, 30);
-        doc.text(`RUC: ${rucCliente}`, 14, 36);
-        doc.text(`Dirección: ${direccionCliente}`, 14, 42);
-
+        doc.setFillColor(230, 230, 230);
+        doc.rect(10, 30, 190, 20, 'F'); // Fondo gris claro para empresa y cliente
+    
+        doc.text(`Empresa: ${empresa}`, 12, 36);
+        doc.text(`RUC: ${rucEmpresa}`, 12, 42);
+        doc.text(`Dirección: ${direccionEmpresa}`, 12, 48);
+    
+        doc.text(`Cliente: ${cliente}`, 150, 36);
+        doc.text(`RUC: ${rucCliente}`, 150, 42);
+        doc.text(`Dirección: ${direccionCliente}`, 150, 48);
+    
         const tableColumn = ["Item", "Unidad", "Cantidad", "Costo", "Total"];
         const tableRows: any[] = [];
-
+    
         const categorizedItems: any = selectedItems.reduce((acc: any, item: any) => {
             if (!acc[item.categoria]) {
                 acc[item.categoria] = [];
@@ -89,53 +98,66 @@ const CrearPresupuesto: React.FC = () => {
             acc[item.categoria].push(item);
             return acc;
         }, {});
-
+    
         Object.keys(categorizedItems).forEach(categoria => {
-            tableRows.push([{ content: categoria, colSpan: 5, styles: { halign: 'center', fillColor: [211, 211, 211] } }]);
+            const totalCategoria = categorizedItems[categoria].reduce((sum: any, item: any) => sum + (item.costo * item.cantidad), 0);
+            tableRows.push([
+                { content: categoria, colSpan: 4, styles: { halign: 'left', fillColor: [211, 211, 211] } },
+                { content: `$${totalCategoria.toFixed(2)}`, styles: { halign: 'center', fillColor: [211, 211, 211], textColor: [0, 0, 0] } }
+            ]);
             categorizedItems[categoria].forEach((item: any) => {
                 const itemData = [
                     item.item,
                     item.unidad,
                     item.cantidad,
-                    item.costo.toFixed(2),
-                    (item.costo * item.cantidad).toFixed(2)
+                    `$${item.costo.toFixed(2)}`,
+                    `$${(item.costo * item.cantidad).toFixed(2)}`
                 ];
                 tableRows.push(itemData);
             });
-
-            const totalCategoria = categorizedItems[categoria].reduce((sum: any, item: any) => sum + (item.costo * item.cantidad), 0);
-            tableRows.push([
-                { content: 'Total de categoría:', colSpan: 4, styles: { halign: 'right' } },
-                { content: totalCategoria.toFixed(2), styles: { halign: 'right' } }
-            ]);
         });
-
+    
         const total = selectedItems.reduce((acc, item) => acc + (item.costo * item.cantidad), 0);
         tableRows.push([
             { content: 'TOTAL GENERAL:', colSpan: 4, styles: { halign: 'right' } },
-            { content: total.toFixed(2), styles: { halign: 'right' } }
+            { content: `$${total.toFixed(2)}`, styles: { halign: 'center' } }
         ]);
-
+    
         (doc as any).autoTable({
             head: [tableColumn],
             body: tableRows,
-            startY: 50,
+            startY: 60,
             theme: 'striped',
             styles: {
-                lineColor: [44, 62, 80],
-                lineWidth: 0.75
+                fillColor: [255, 255, 255],  // No fill color for cells
+                textColor: [0, 0, 0],  // Black text color
+                cellPadding: 1,
+                halign: 'left',  // Align all text to the left
+                lineColor: [211, 211, 211],  // Light gray borders
+                lineWidth: 0.5,
+            },
+            headStyles: {
+                fillColor: [44, 62, 80], // Dark blue header
+                textColor: [255, 255, 255], // White text in header
+                halign: 'center',  // Center text in header
             },
             columnStyles: {
-                0: { cellWidth: 60 },
-                1: { cellWidth: 20 },
-                2: { cellWidth: 20 },
-                3: { cellWidth: 30 },
-                4: { cellWidth: 30 }
-            }
+                0: { cellWidth: 70 }, // Reduce width of Item column
+                1: { cellWidth: 25 }, // Set width for Unidad
+                2: { cellWidth: 25, halign: 'center' }, // Set width for Cantidad
+                3: { cellWidth: 35, halign: 'center' }, // Set width for Costo
+                4: { cellWidth: 35, halign: 'center' }, // Set width for Total
+            },
+            tableWidth: 'auto',
+            margin: { left: 10, right: 10 },
         });
-
+    
         doc.save('presupuesto.pdf');
     };
+    
+    
+    
+    
 
     const categories = [
         "Estudio y Ensayo de Suelo",
@@ -225,7 +247,7 @@ const CrearPresupuesto: React.FC = () => {
                 </ul>
             </div>
             <div className="w-3/4 p-4">
-                <div className="mb-1 flex justify-start items-center">
+                <div className="mb-4 flex justify-start items-center">
                     <h2 className="text-lg font-semibold text-gray-900 dark:text-white mr-2">Cotización</h2>
                     <button
                         type="button"
