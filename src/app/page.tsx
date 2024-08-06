@@ -169,9 +169,9 @@ const Home: React.FC = () => {
             <input
               type="text"
               placeholder="Buscar por título"
-              value={searchTerm}
+              value={searchTerm}              
               onChange={handleSearchChange}
-              className="p-2 rounded border"
+              className="p-2 rounded border text-black"
             />
           </div>
           <div className='flex items-center'>
@@ -180,7 +180,7 @@ const Home: React.FC = () => {
               id="category-select"
               value={selectedCategory || ''}
               onChange={handleCategoryChange}
-              className="p-2 rounded border"
+              className="p-2 rounded border text-black"
             >
               <option value="">Todas</option>
               {categories.map((category, index) => (
