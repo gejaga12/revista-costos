@@ -3,17 +3,17 @@
 import React, { useState } from 'react';
 import data from '../datos/data.json';
 import { TableData } from '../../types';
-import { FaCheckCircle, FaChevronDown, FaChevronUp, FaClock, FaFileAlt, FaFileInvoice, FaSave, FaTrash, FaUser } from 'react-icons/fa';
+import { FaCheckCircle, FaChevronDown, FaChevronUp, FaClock, FaFileAlt, FaFileInvoice, FaTrash, FaUser } from 'react-icons/fa';
+import { IoIosConstruct } from 'react-icons/io';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
-import { IoIosConstruct } from 'react-icons/io';
 
 const CrearPresupuesto: React.FC = () => {
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
     const [selectedItems, setSelectedItems] = useState<(TableData & { cantidad: number })[]>([]);
     const [isItemsExpanded, setIsItemsExpanded] = useState<boolean>(true);
-    const [isCotizacionExpanded, setIsCotizacionExpanded] = useState<boolean>(true);
-    const [isClienteExpanded, setIsClienteExpanded] = useState<boolean>(true);
+    const [isCotizacionExpanded, setIsCotizacionExpanded] = useState<boolean>(false);
+    const [isClienteExpanded, setIsClienteExpanded] = useState<boolean>(false);
     const [quantity, setQuantity] = useState<number>(1);
     const [showQuantityModal, setShowQuantityModal] = useState<boolean>(false);
     const [itemToAdd, setItemToAdd] = useState<TableData | null>(null);
@@ -155,7 +155,7 @@ const CrearPresupuesto: React.FC = () => {
 
         doc.save('presupuesto.pdf');
     };
-    
+
     const categories = [
         "Estudio y Ensayo de Suelo",
         "Pagos del Comunero - Derecho de Construcción",
@@ -230,10 +230,12 @@ const CrearPresupuesto: React.FC = () => {
                     {categories.map((category, index) => (
                         <li
                             key={index}
-                            className={`flex justify-between items-center p-2 cursor-pointer ${selectedCategory === category ? 'bg-blue-500 text-white' : 'text-black dark:text-white'}`}
+                            className={`flex justify-between items-center p-2 cursor-pointer border-gray-500 border-b ${selectedCategory === category ? 'bg-blue-500 text-white' : 'text-black dark:text-white'}`}
                             onClick={() => handleCategoryClick(category)}
                         >
-                            <span className='text-xs mr-1'>{category}</span>
+                            <span className='text-xs'>
+                                <span className={`font-semibold px-2 mr-2 bg-red-600 rounded-e-xl ${selectedCategory === category ? 'text-red-800 bg-white' : 'text-white'}`}>{index + 1}</span>{category}
+                            </span>
                             {isCategoryCompleted(category) ? (
                                 <FaCheckCircle className="text-green-500" />
                             ) : (
@@ -243,11 +245,12 @@ const CrearPresupuesto: React.FC = () => {
                     ))}
                 </ul>
             </div>
+
             <div className="w-3/4 p-4">
                 <div className="mb-4 flex justify-between items-center bg-gray-300 dark:bg-gray-600 p-1 rounded-lg">
                     <div className="flex items-center">
                         <FaFileInvoice className="text-gray-900 dark:text-white mx-2" />
-                        <h2 className="text-lg font-semibold text-gray-900 dark:text-white mr-2">Cotización</h2>
+                        <h2 className="text-base font-semibold text-gray-900 dark:text-white mr-2">Cotización</h2>
                     </div>
                     <button
                         type="button"
@@ -260,7 +263,7 @@ const CrearPresupuesto: React.FC = () => {
                 {isCotizacionExpanded && (
                     <form onSubmit={(e) => e.preventDefault()} className='mb-4'>
                         <div className="mb-1">
-                            <label className="block text-gray-700 dark:text-gray-300 mb-1" htmlFor="nombreEmpresa">
+                            <label className="block text-sm text-gray-700 dark:text-gray-300 mb-1" htmlFor="nombreEmpresa">
                                 Nombre de Empresa
                             </label>
                             <input
@@ -273,7 +276,7 @@ const CrearPresupuesto: React.FC = () => {
                             />
                         </div>
                         <div className="mb-1">
-                            <label className="block text-gray-700 dark:text-gray-300 mb-1" htmlFor="rucEmpresa">
+                            <label className="block text-sm text-gray-700 dark:text-gray-300 mb-1" htmlFor="rucEmpresa">
                                 Ruc
                             </label>
                             <input
@@ -286,7 +289,7 @@ const CrearPresupuesto: React.FC = () => {
                             />
                         </div>
                         <div className="mb-1">
-                            <label className="block text-gray-700 dark:text-gray-300 mb-1" htmlFor="direccionEmpresa">
+                            <label className="block text-sm text-gray-700 dark:text-gray-300 mb-1" htmlFor="direccionEmpresa">
                                 Dirección
                             </label>
                             <input
@@ -303,7 +306,7 @@ const CrearPresupuesto: React.FC = () => {
                 <div className="mb-4 flex justify-between items-center dark:bg-gray-600 bg-gray-300 p-1 rounded-lg">
                     <div className="flex items-center">
                         <FaUser className="text-gray-900 dark:text-white mx-2" />
-                        <h2 className="text-lg font-semibold text-gray-900 dark:text-white mr-2">Cliente</h2>
+                        <h2 className="text-base font-semibold text-gray-900 dark:text-white mr-2">Cliente</h2>
                     </div>
                     <button
                         type="button"
@@ -316,7 +319,7 @@ const CrearPresupuesto: React.FC = () => {
                 {isClienteExpanded && (
                     <form onSubmit={(e) => e.preventDefault()} className='mb-4'>
                         <div className="mb-1">
-                            <label className="block text-gray-700 dark:text-gray-300 mb-1" htmlFor="nombreCliente">
+                            <label className="block text-sm text-gray-700 dark:text-gray-300 mb-1" htmlFor="nombreCliente">
                                 Nombre del Cliente
                             </label>
                             <input
@@ -329,7 +332,7 @@ const CrearPresupuesto: React.FC = () => {
                             />
                         </div>
                         <div className="mb-1">
-                            <label className="block text-gray-700 dark:text-gray-300 mb-1" htmlFor="rucCliente">
+                            <label className="block text-sm text-gray-700 dark:text-gray-300 mb-1" htmlFor="rucCliente">
                                 Ruc
                             </label>
                             <input
@@ -342,7 +345,7 @@ const CrearPresupuesto: React.FC = () => {
                             />
                         </div>
                         <div className="mb-1">
-                            <label className="block text-gray-700 dark:text-gray-300 mb-1" htmlFor="direccionCliente">
+                            <label className="block text-sm text-gray-700 dark:text-gray-300 mb-1" htmlFor="direccionCliente">
                                 Dirección
                             </label>
                             <input
@@ -357,11 +360,11 @@ const CrearPresupuesto: React.FC = () => {
                     </form>
                 )}
                 <div className="mb-4 mt-4">
-                <div className="mb-4 flex justify-between items-center bg-gray-300 dark:bg-gray-600 p-1 rounded-lg">
-                    <div className="flex items-center">
-                        <IoIosConstruct className="text-gray-900  dark:text-white mx-2" />
-                        <h2 className="text-lg font-semibold text-gray-900 dark:text-white mr-2">Items Seleccionados</h2>
-                    </div>
+                    <div className="mb-4 flex justify-between items-center bg-gray-300 dark:bg-gray-600 p-1 rounded-lg">
+                        <div className="flex items-center">
+                            <IoIosConstruct className="text-gray-900  dark:text-white mx-2" />
+                            <h2 className="text-base font-semibold text-gray-900 dark:text-white mr-2">Items Seleccionados</h2>
+                        </div>
                         <button
                             type="button"
                             onClick={toggleItemsExpand}
