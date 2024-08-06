@@ -250,7 +250,7 @@ const CrearPresupuesto: React.FC = () => {
                 <div className="mb-4 flex justify-between items-center bg-gray-300 dark:bg-gray-600 p-1 rounded-lg">
                     <div className="flex items-center">
                         <FaFileInvoice className="text-gray-900 dark:text-white mx-2" />
-                        <h2 className="text-base font-semibold text-gray-900 dark:text-white mr-2">Cotización</h2>
+                        <h2 className="text-base font-semibold text-gray-900 dark:text-white mr-2">Empresa</h2>
                     </div>
                     <button
                         type="button"
