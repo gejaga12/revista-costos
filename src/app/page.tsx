@@ -161,7 +161,7 @@ const Home: React.FC = () => {
       <div className='flex justify-end items-center'>
       <button
             onClick={() => router.push('/presupuesto')}
-            className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded"
+            className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded mb-2"
           >
             Crear Presupuesto
           </button>
