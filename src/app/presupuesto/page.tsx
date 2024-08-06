@@ -3,9 +3,10 @@
 import React, { useState } from 'react';
 import data from '../datos/data.json';
 import { TableData } from '../../types';
-import { FaCheckCircle, FaChevronDown, FaChevronUp, FaClock, FaFileAlt, FaSave, FaTrash } from 'react-icons/fa';
+import { FaCheckCircle, FaChevronDown, FaChevronUp, FaClock, FaFileAlt, FaFileInvoice, FaSave, FaTrash, FaUser } from 'react-icons/fa';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
+import { IoIosConstruct } from 'react-icons/io';
 
 const CrearPresupuesto: React.FC = () => {
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -66,31 +67,31 @@ const CrearPresupuesto: React.FC = () => {
 
     const generatePDF = () => {
         const doc = new jsPDF();
-    
+
         // Agregar logo
         const logoURL = '/logo.webp';
         doc.addImage(logoURL, 'WEBP', 10, 10, 50, 15);
-    
+
         // Título
         doc.setFontSize(18);
         doc.text('PRESUPUESTO DE CONSTRUCCIÓN', 70, 22);
-    
+
         // Datos de la empresa y el cliente
         doc.setFontSize(10);
         doc.setFillColor(230, 230, 230);
         doc.rect(10, 30, 190, 20, 'F'); // Fondo gris claro para empresa y cliente
-    
+
         doc.text(`Empresa: ${empresa}`, 12, 36);
         doc.text(`RUC: ${rucEmpresa}`, 12, 42);
         doc.text(`Dirección: ${direccionEmpresa}`, 12, 48);
-    
+
         doc.text(`Cliente: ${cliente}`, 150, 36);
         doc.text(`RUC: ${rucCliente}`, 150, 42);
         doc.text(`Dirección: ${direccionCliente}`, 150, 48);
-    
+
         const tableColumn = ["Item", "Unidad", "Cantidad", "Costo", "Total"];
         const tableRows: any[] = [];
-    
+
         const categorizedItems: any = selectedItems.reduce((acc: any, item: any) => {
             if (!acc[item.categoria]) {
                 acc[item.categoria] = [];
@@ -98,7 +99,7 @@ const CrearPresupuesto: React.FC = () => {
             acc[item.categoria].push(item);
             return acc;
         }, {});
-    
+
         Object.keys(categorizedItems).forEach(categoria => {
             const totalCategoria = categorizedItems[categoria].reduce((sum: any, item: any) => sum + (item.costo * item.cantidad), 0);
             tableRows.push([
@@ -116,13 +117,13 @@ const CrearPresupuesto: React.FC = () => {
                 tableRows.push(itemData);
             });
         });
-    
+
         const total = selectedItems.reduce((acc, item) => acc + (item.costo * item.cantidad), 0);
         tableRows.push([
             { content: 'TOTAL GENERAL:', colSpan: 4, styles: { halign: 'right' } },
             { content: `$${total.toFixed(2)}`, styles: { halign: 'center' } }
         ]);
-    
+
         (doc as any).autoTable({
             head: [tableColumn],
             body: tableRows,
@@ -151,14 +152,10 @@ const CrearPresupuesto: React.FC = () => {
             tableWidth: 'auto',
             margin: { left: 10, right: 10 },
         });
-    
+
         doc.save('presupuesto.pdf');
     };
     
-    
-    
-    
-
     const categories = [
         "Estudio y Ensayo de Suelo",
         "Pagos del Comunero - Derecho de Construcción",
@@ -247,8 +244,11 @@ const CrearPresupuesto: React.FC = () => {
                 </ul>
             </div>
             <div className="w-3/4 p-4">
-                <div className="mb-4 flex justify-start items-center">
-                    <h2 className="text-lg font-semibold text-gray-900 dark:text-white mr-2">Cotización</h2>
+                <div className="mb-4 flex justify-between items-center bg-gray-300 dark:bg-gray-600 p-1 rounded-lg">
+                    <div className="flex items-center">
+                        <FaFileInvoice className="text-gray-900 dark:text-white mx-2" />
+                        <h2 className="text-lg font-semibold text-gray-900 dark:text-white mr-2">Cotización</h2>
+                    </div>
                     <button
                         type="button"
                         onClick={toggleCotizacionExpand}
@@ -258,7 +258,7 @@ const CrearPresupuesto: React.FC = () => {
                     </button>
                 </div>
                 {isCotizacionExpanded && (
-                    <form onSubmit={(e) => e.preventDefault()}>
+                    <form onSubmit={(e) => e.preventDefault()} className='mb-4'>
                         <div className="mb-1">
                             <label className="block text-gray-700 dark:text-gray-300 mb-1" htmlFor="nombreEmpresa">
                                 Nombre de Empresa
@@ -300,8 +300,11 @@ const CrearPresupuesto: React.FC = () => {
                         </div>
                     </form>
                 )}
-                <div className="mb-4 flex justify-start items-center">
-                    <h2 className="text-lg font-semibold text-gray-900 dark:text-white mr-2">Cliente</h2>
+                <div className="mb-4 flex justify-between items-center dark:bg-gray-600 bg-gray-300 p-1 rounded-lg">
+                    <div className="flex items-center">
+                        <FaUser className="text-gray-900 dark:text-white mx-2" />
+                        <h2 className="text-lg font-semibold text-gray-900 dark:text-white mr-2">Cliente</h2>
+                    </div>
                     <button
                         type="button"
                         onClick={toggleClienteExpand}
@@ -311,7 +314,7 @@ const CrearPresupuesto: React.FC = () => {
                     </button>
                 </div>
                 {isClienteExpanded && (
-                    <form onSubmit={(e) => e.preventDefault()}>
+                    <form onSubmit={(e) => e.preventDefault()} className='mb-4'>
                         <div className="mb-1">
                             <label className="block text-gray-700 dark:text-gray-300 mb-1" htmlFor="nombreCliente">
                                 Nombre del Cliente
@@ -354,8 +357,11 @@ const CrearPresupuesto: React.FC = () => {
                     </form>
                 )}
                 <div className="mb-4 mt-4">
-                    <div className="flex justify-start items-center mb-2">
-                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mr-2">Items Seleccionados</h3>
+                <div className="mb-4 flex justify-between items-center bg-gray-300 dark:bg-gray-600 p-1 rounded-lg">
+                    <div className="flex items-center">
+                        <IoIosConstruct className="text-gray-900  dark:text-white mx-2" />
+                        <h2 className="text-lg font-semibold text-gray-900 dark:text-white mr-2">Items Seleccionados</h2>
+                    </div>
                         <button
                             type="button"
                             onClick={toggleItemsExpand}
