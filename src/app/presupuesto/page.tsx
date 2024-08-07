@@ -73,31 +73,47 @@ const CrearPresupuesto: React.FC = () => {
 
     const generatePDF = () => {
         const doc = new jsPDF();
-
+    
+        // Agregar fondo negro alrededor del logo
+        doc.setFillColor(0, 0, 0);
+        doc.rect(10, 10, 50, 15, 'F');
+        
         // Agregar logo
         const logoURL = '/logo.webp';
         doc.addImage(logoURL, 'WEBP', 10, 10, 50, 15);
-
+    
         // Título
         doc.setFontSize(18);
         doc.text('PRESUPUESTO DE CONSTRUCCIÓN', 70, 22);
-
+    
+        // Obtener la fecha actual
+        const date = new Date();
+        const formattedDate = date.toLocaleDateString('es-ES', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        });
+    
+        // Agregar fecha debajo del título
+        doc.setFontSize(12);
+        doc.text(`Fecha: ${formattedDate}`, 70, 30);
+    
         // Datos de la empresa y el cliente
         doc.setFontSize(10);
         doc.setFillColor(230, 230, 230);
-        doc.rect(10, 30, 190, 20, 'F'); // Fondo gris claro para empresa y cliente
-
-        doc.text(`Empresa: ${empresa}`, 12, 36);
-        doc.text(`RUC: ${rucEmpresa}`, 12, 42);
-        doc.text(`Dirección: ${direccionEmpresa}`, 12, 48);
-
-        doc.text(`Cliente: ${cliente}`, 150, 36);
-        doc.text(`RUC: ${rucCliente}`, 150, 42);
-        doc.text(`Dirección: ${direccionCliente}`, 150, 48);
-
+        doc.rect(10, 40, 190, 20, 'F'); // Fondo gris claro para empresa y cliente
+    
+        doc.text(`Empresa: ${empresa}`, 12, 46);
+        doc.text(`RUC: ${rucEmpresa}`, 12, 52);
+        doc.text(`Dirección: ${direccionEmpresa}`, 12, 58);
+    
+        doc.text(`Cliente: ${cliente}`, 150, 46);
+        doc.text(`RUC: ${rucCliente}`, 150, 52);
+        doc.text(`Dirección: ${direccionCliente}`, 150, 58);
+    
         const tableColumn = ["Item", "Unidad", "Cantidad", "Costo", "Total"];
         const tableRows: any[] = [];
-
+    
         const categorizedItems: any = selectedItems.reduce((acc: any, item: any) => {
             if (!acc[item.categoria]) {
                 acc[item.categoria] = [];
@@ -105,7 +121,7 @@ const CrearPresupuesto: React.FC = () => {
             acc[item.categoria].push(item);
             return acc;
         }, {});
-
+    
         Object.keys(categorizedItems).forEach(categoria => {
             const totalCategoria = categorizedItems[categoria].reduce((sum: any, item: any) => sum + (item.costo * item.cantidad), 0);
             tableRows.push([
@@ -123,17 +139,17 @@ const CrearPresupuesto: React.FC = () => {
                 tableRows.push(itemData);
             });
         });
-
+    
         const total = selectedItems.reduce((acc, item) => acc + (item.costo * item.cantidad), 0);
         tableRows.push([
-            { content: 'TOTAL GENERAL  ', colSpan: 4, styles: { halign: 'right' } },
+            { content: 'TOTAL GENERAL:', colSpan: 4, styles: { halign: 'right' } },
             { content: `$${total.toFixed(2)}`, styles: { halign: 'center' } }
         ]);
-
+    
         (doc as any).autoTable({
             head: [tableColumn],
             body: tableRows,
-            startY: 60,
+            startY: 70,
             theme: 'striped',
             styles: {
                 fillColor: [255, 255, 255],  // No fill color for cells
@@ -158,9 +174,11 @@ const CrearPresupuesto: React.FC = () => {
             tableWidth: 'auto',
             margin: { left: 10, right: 10 },
         });
-
+    
         doc.save('presupuesto.pdf');
     };
+    
+    
 
     const handleCreatePresupuesto = () => {
         Swal.fire({
