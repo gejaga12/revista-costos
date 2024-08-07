@@ -11,6 +11,8 @@ import ClienteForm from '../components/presupuesto/ClienteForm';
 import SelectedItemsList from '../components/presupuesto/SelectedItemsList';
 import { FaFileAlt } from 'react-icons/fa';
 import withAuth from '../utils/withAuth';
+import Swal from 'sweetalert2';
+import { toast } from 'react-hot-toast';
 
 const CrearPresupuesto: React.FC = () => {
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -124,7 +126,7 @@ const CrearPresupuesto: React.FC = () => {
 
         const total = selectedItems.reduce((acc, item) => acc + (item.costo * item.cantidad), 0);
         tableRows.push([
-            { content: 'TOTAL GENERAL:', colSpan: 4, styles: { halign: 'right' } },
+            { content: 'TOTAL GENERAL  ', colSpan: 4, styles: { halign: 'right' } },
             { content: `$${total.toFixed(2)}`, styles: { halign: 'center' } }
         ]);
 
@@ -158,6 +160,25 @@ const CrearPresupuesto: React.FC = () => {
         });
 
         doc.save('presupuesto.pdf');
+    };
+
+    const handleCreatePresupuesto = () => {
+        Swal.fire({
+            title: '<span style="font-size: 15px;">¿Desea generar el presupuesto?</span>',
+            width: '350px',
+            showCancelButton: true,
+            confirmButtonText: 'Generar',
+            confirmButtonColor: '#3b82f6',
+            cancelButtonText: 'Cancelar',
+            customClass: {
+                title: 'swal-title-custom'
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                generatePDF();
+                toast.success('Presupuesto creado correctamente');
+            }
+        });
     };
 
     const categories = [
@@ -261,7 +282,10 @@ const CrearPresupuesto: React.FC = () => {
                     toggleItemsExpand={toggleItemsExpand}
                     handleRemoveItem={handleRemoveItem}
                 />
-                <button onClick={generatePDF} className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded flex items-center">
+                <button
+                    onClick={handleCreatePresupuesto}
+                    className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded flex items-center"
+                >
                     <FaFileAlt className="mr-2" />
                     Crear Presupuesto
                 </button>
