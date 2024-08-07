@@ -142,7 +142,7 @@ const CrearPresupuesto: React.FC = () => {
     
         const total = selectedItems.reduce((acc, item) => acc + (item.costo * item.cantidad), 0);
         tableRows.push([
-            { content: 'TOTAL GENERAL:', colSpan: 4, styles: { halign: 'right' } },
+            { content: 'TOTAL GENERAL', colSpan: 4, styles: { halign: 'right' } },
             { content: `$${total.toFixed(2)}`, styles: { halign: 'center' } }
         ]);
     
