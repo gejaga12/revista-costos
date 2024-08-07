@@ -10,6 +10,7 @@ import EmpresaForm from '../components/presupuesto/EmpresaForm';
 import ClienteForm from '../components/presupuesto/ClienteForm';
 import SelectedItemsList from '../components/presupuesto/SelectedItemsList';
 import { FaFileAlt } from 'react-icons/fa';
+import withAuth from '../utils/withAuth';
 
 const CrearPresupuesto: React.FC = () => {
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -299,4 +300,4 @@ const CrearPresupuesto: React.FC = () => {
     );
 };
 
-export default CrearPresupuesto;
+export default withAuth(CrearPresupuesto);

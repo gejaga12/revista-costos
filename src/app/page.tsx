@@ -2,13 +2,13 @@
 "use client"
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Navbar from './components/Navbar';
 import Table from './components/Table';
 import ReferencesDashboard from './components/ReferencesDashboard';
 import data from './datos/data.json';
 import { TableData } from '../types';
 import Modal from './components/Modal';
 import { FaSearch } from 'react-icons/fa';
+import withAuth from './utils/withAuth';
 
 const Home: React.FC = () => {
   const [selectedItems, setSelectedItems] = useState<TableData[]>([]);
@@ -219,4 +219,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default withAuth(Home);
