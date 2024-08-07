@@ -29,13 +29,10 @@ const LoginPage = () => {
         <source src="/fondo1.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-black opacity-75"></div>
-      <div className="relative w-full max-w-sm p-6 border rounded-lg shadow bg-black bg-opacity-50 backdrop-filter backdrop-blur-base">
-        <div className="flex justify-center mb-4">
-          {/* <Image src="/logo.webp" alt="Logo" width={100} height={100} /> */}
-        </div>
+      <div className="relative w-full max-w-sm p-6 border rounded-lg shadow bg-black bg-opacity-50 backdrop-filter backdrop-blur-base">      
         <LoginForm />
       </div>
-      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-gray-700">
+      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-white">
         VERSION 0.0.1
       </div>
     </div>
