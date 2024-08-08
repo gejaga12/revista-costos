@@ -49,23 +49,20 @@ const Navbar: React.FC = () => {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-between">
                 <div className="flex flex-shrink-0 items-center">
                   <Link href="/">
-                
                       <Image src="/logo.webp" alt="Logo" width={350} height={280} className="block h-16 w-auto" /> {/* Aumentar el tamaño del logo */}
-                 
                   </Link>
                 </div>
                 {user && ( // Mostrar solo si el usuario está autenticado
                   <div className="hidden sm:flex sm:ml-auto sm:mr-auto items-center justify-center"> {/* Flex contenedor centrado */}
                     <div className="flex space-x-4">
                       {navigation.map((item) => (
-                        <Link key={item.name} href={item.href}  className={classNames(
+                        <Link key={item.name} href={item.href} className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                           'rounded-md px-3 py-2 text-sm font-medium'
                         )}
                         aria-current={item.current ? 'page' : undefined}
-                      >                        
+                        >                        
                             {item.name}
-                        
                         </Link>
                       ))}
                     </div>
@@ -73,17 +70,17 @@ const Navbar: React.FC = () => {
                 )}
               </div>
               {user && ( // Mostrar solo si el usuario está autenticado
-                <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 space-x-4">
                   <button
                     type="button"
-                    className="relative rounded-full bg-black p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                    className="relative rounded-full bg-black p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 hidden sm:block"
                   >
                     <span className="sr-only">View notifications</span>
                     <BellIcon className="h-6 w-6" aria-hidden="true" />
                   </button>
 
                   {/* Profile dropdown */}
-                  <Menu as="div" className="relative ml-3">
+                  <Menu as="div" className="relative">
                     <div>
                       <Menu.Button className="relative flex rounded-full bg-black text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                         <span className="sr-only">Open user menu</span>
@@ -102,28 +99,22 @@ const Navbar: React.FC = () => {
                       <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                         <Menu.Item>
                           {({ active }) => (
-                            <Link href="/"className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
-                             
-                                Inicio
-                             
+                            <Link href="/" className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
+                              Inicio
                             </Link>
                           )}
                         </Menu.Item>
                         <Menu.Item>
                           {({ active }) => (
                             <Link href="/historial" className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
-                              
-                                Historial de Presupuestos
-                             
+                              Historial de Presupuestos
                             </Link>
                           )}
                         </Menu.Item>
                         <Menu.Item>
                           {({ active }) => (
                             <Link href="/perfil" className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
-                              
-                                Perfil
-                           
+                              Perfil
                             </Link>
                           )}
                         </Menu.Item>
@@ -140,11 +131,11 @@ const Navbar: React.FC = () => {
                       </Menu.Items>
                     </Transition>
                   </Menu>
+                  <button onClick={toggleTheme} className="text-white">
+                    {theme === 'light' ? <FaMoon className="h-6 w-6" /> : <FaSun className="h-6 w-6" />}
+                  </button>
                 </div>
               )}
-              <button onClick={toggleTheme} className="text-white ml-4">
-                {theme === 'light' ? <FaMoon className="h-6 w-6" /> : <FaSun className="h-6 w-6" />}
-              </button>
             </div>
           </div>
 
