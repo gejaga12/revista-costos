@@ -26,7 +26,7 @@ const LoginForm: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6 bg-black p-6 rounded-lg shadow-md">
-    {error && <p className="text-red-500 text-sm">{error}</p>}
+    {error && <p className="text-red-500 text-sm text-center">{error}</p>}
     <h1 className='font-bold text-2xl text-center text-white'>Iniciar Sesión</h1>
     <div>
       <label htmlFor="username" className="block text-gray-300 mb-2">Usuario</label>
